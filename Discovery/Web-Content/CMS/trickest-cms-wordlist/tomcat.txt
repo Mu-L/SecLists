@@ -214,10 +214,6 @@ webapps/examples/WEB-INF/classes/examples/LogTag.java
 webapps/examples/WEB-INF/classes/examples/FooTagExtraInfo.java
 webapps/examples/WEB-INF/classes/examples/ValuesTag.java
 webapps/examples/WEB-INF/classes/LocalStrings_ru.properties
-webapps/examples/WEB-INF/classes/cal/Entries.java
-webapps/examples/WEB-INF/classes/cal/JspCalendar.java
-webapps/examples/WEB-INF/classes/cal/Entry.java
-webapps/examples/WEB-INF/classes/cal/TableBean.java
 webapps/examples/WEB-INF/classes/error/Smart.java
 webapps/examples/WEB-INF/classes/LocalStrings_de.properties
 webapps/examples/WEB-INF/classes/colors/ColorGameBean.java
@@ -240,6 +236,7 @@ webapps/examples/WEB-INF/classes/CookieExample.java
 webapps/examples/WEB-INF/classes/listeners/SessionListener.java
 webapps/examples/WEB-INF/classes/listeners/ContextListener.java
 webapps/examples/WEB-INF/classes/sessions/DummyCart.java
+webapps/examples/WEB-INF/classes/sessions/Item.java
 webapps/examples/WEB-INF/classes/util/HTMLFilter.java
 webapps/examples/WEB-INF/classes/util/CookieFilter.java
 webapps/examples/WEB-INF/classes/RequestHeaderExample.java
@@ -277,10 +274,6 @@ webapps/examples/jsp/checkbox/check.html
 webapps/examples/jsp/checkbox/cresult.html
 webapps/examples/jsp/checkbox/CheckTest.html
 webapps/examples/jsp/checkbox/checkresult.jsp
-webapps/examples/jsp/cal/cal2.jsp
-webapps/examples/jsp/cal/cal1.jsp
-webapps/examples/jsp/cal/calendar.html
-webapps/examples/jsp/cal/login.html
 webapps/examples/jsp/error/error.html
 webapps/examples/jsp/error/errorpge.jsp
 webapps/examples/jsp/error/er.html
@@ -308,8 +301,8 @@ webapps/examples/jsp/xml/xml.jsp
 webapps/examples/jsp/xml/xml.html
 webapps/examples/jsp/sessions/crt.html
 webapps/examples/jsp/sessions/DummyCart.html
-webapps/examples/jsp/sessions/carts.html
 webapps/examples/jsp/sessions/carts.jsp
+webapps/examples/jsp/sessions/shopping.jsp
 webapps/examples/jsp/forward/forward.jsp
 webapps/examples/jsp/forward/two.html
 webapps/examples/jsp/forward/fwd.html
@@ -955,7 +948,6 @@ test/org/apache/catalina/valves/rewrite/TestRewriteValve.java
 test/org/apache/catalina/valves/rewrite/TestResolverSSL.java
 test/org/apache/catalina/valves/rewrite/TestQuotedStringTokenizer.java
 test/org/apache/catalina/valves/TestExtendedAccessLogValve.java
-test/org/apache/catalina/valves/TestJDBCAccessLogValve.java
 test/org/apache/catalina/valves/TestPersistentValve.java
 test/org/apache/catalina/valves/TestStuckThreadDetectionValve.java
 test/org/apache/catalina/valves/TestRemoteIpValve.java
@@ -1094,7 +1086,9 @@ test/org/apache/catalina/servlets/TestDefaultServletIfMatchRequests.java
 test/org/apache/catalina/servlets/TestWebdavServletOptionsFile.java
 test/org/apache/catalina/servlets/TestDefaultServletEncodingPassThroughBom.java
 test/org/apache/catalina/servlets/TestWebdavServletOptionCollection.java
+test/org/apache/catalina/servlets/TestDefaultServletRfc9110Section14.java
 test/org/apache/catalina/servlets/TestCGIServletCmdLineArguments.java
+test/org/apache/catalina/servlets/TestWebdavPropertyStore.java
 test/org/apache/catalina/servlets/TestWebdavServletOptionsUnknown.java
 test/org/apache/catalina/servlets/TestWebdavServlet.java
 test/org/apache/catalina/servlets/TestDefaultServletOptions.java
@@ -3536,7 +3530,6 @@ java/org/apache/catalina/valves/RemoteCIDRValve.java
 java/org/apache/catalina/valves/LocalStrings_cs.properties
 java/org/apache/catalina/valves/JsonErrorReportValve.java
 java/org/apache/catalina/valves/RemoteHostValve.java
-java/org/apache/catalina/valves/JDBCAccessLogValve.java
 java/org/apache/catalina/valves/LoadBalancerDrainingValve.java
 java/org/apache/catalina/valves/LocalStrings_pt_BR.properties
 java/org/apache/catalina/valves/Constants.java
@@ -3989,6 +3982,7 @@ java/org/apache/catalina/servlets/LocalStrings_fr.properties
 java/org/apache/catalina/servlets/DefaultServlet.java
 java/org/apache/catalina/servlets/LocalStrings_cs.properties
 java/org/apache/catalina/servlets/CGIServlet.java
+java/org/apache/catalina/servlets/DataSourcePropertyStore.java
 java/org/apache/catalina/servlets/LocalStrings_pt_BR.properties
 java/org/apache/catalina/servlets/LocalStrings_ru.properties
 java/org/apache/catalina/servlets/LocalStrings_de.properties
