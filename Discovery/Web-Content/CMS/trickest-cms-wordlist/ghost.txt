@@ -832,6 +832,7 @@ ghost/core/test/integration/importer/legacy.test.js
 ghost/core/test/integration/importer/v2.test.js
 ghost/core/test/integration/importer/v1.test.js
 ghost/core/test/integration/jobs/test-job.js
+ghost/core/test/integration/jobs/test-job-events.js
 ghost/core/test/integration/jobs/job-queue.test.js
 ghost/core/test/integration/jobs/update-check.test.js
 ghost/core/test/integration/prometheus-client.test.js
@@ -1121,12 +1122,14 @@ ghost/core/test/unit/server/data/schema/validator.test.js
 ghost/core/test/unit/server/data/schema/schema.test.js
 ghost/core/test/unit/server/data/schema/commands.test.js
 ghost/core/test/unit/server/data/schema/fixtures/fixture-manager.test.js
+ghost/core/test/unit/server/data/importer/test.zip
 ghost/core/test/unit/server/data/importer/handlers/image.test.js
 ghost/core/test/unit/server/data/importer/importers/data/products.test.js
 ghost/core/test/unit/server/data/importer/importers/data/posts.test.js
 ghost/core/test/unit/server/data/importer/importers/data/newsletters.test.js
 ghost/core/test/unit/server/data/importer/importers/data/settings.test.js
 ghost/core/test/unit/server/data/importer/importers/ContentFileImporter.test.js
+ghost/core/test/unit/server/data/importer/import-manager.test.js
 ghost/core/test/unit/server/data/importer/index.test.js
 ghost/core/test/unit/server/data/exporter/index.test.js
 ghost/core/test/unit/server/data/db/backup.test.js
@@ -1173,6 +1176,7 @@ ghost/core/test/unit/server/services/members/middleware.test.js
 ghost/core/test/unit/server/services/members/utils.test.js
 ghost/core/test/unit/server/services/members/stripe-connect.test.js
 ghost/core/test/unit/server/services/link-tracking/PostLinkRepository.test.js
+ghost/core/test/unit/server/services/link-tracking/LinkClickRepository.test.js
 ghost/core/test/unit/server/services/mail/GhostMailer.test.js
 ghost/core/test/unit/server/services/collections/CollectionsServiceWrapper.test.js
 ghost/core/test/unit/server/services/slack-notifications/index.test.js
@@ -5798,6 +5802,7 @@ apps/comments-ui/test/utils/MockedApi.ts
 apps/comments-ui/test/utils/fixtures.ts
 apps/comments-ui/test/e2e/editor.test.ts
 apps/comments-ui/test/e2e/autoclose-forms.test.ts
+apps/comments-ui/test/e2e/main-form.test.ts
 apps/comments-ui/test/e2e/options.test.ts
 apps/comments-ui/test/e2e/labs.test.ts
 apps/comments-ui/test/e2e/actions.test.ts
@@ -5816,6 +5821,7 @@ apps/comments-ui/src/index.tsx
 apps/comments-ui/src/typings.d.ts
 apps/comments-ui/src/utils/hooks.ts
 apps/comments-ui/src/utils/api.test.ts
+apps/comments-ui/src/utils/hooks.test.tsx
 apps/comments-ui/src/utils/api.ts
 apps/comments-ui/src/utils/adminAPI.test.ts
 apps/comments-ui/src/utils/helpers.ts
@@ -5846,6 +5852,7 @@ apps/comments-ui/src/components/content/CTABox.tsx
 apps/comments-ui/src/components/content/Replies.tsx
 apps/comments-ui/src/components/content/Comment.test.jsx
 apps/comments-ui/src/components/content/ContentTitle.tsx
+apps/comments-ui/src/components/content/context-menus/CommentContextMenu.test.jsx
 apps/comments-ui/src/components/content/context-menus/NotAuthorContextMenu.tsx
 apps/comments-ui/src/components/content/context-menus/AdminContextMenu.tsx
 apps/comments-ui/src/components/content/context-menus/CommentContextMenu.tsx

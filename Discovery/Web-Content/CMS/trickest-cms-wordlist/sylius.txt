@@ -5181,6 +5181,7 @@ src/Sylius/Bundle/AdminBundle/Resources/assets/controllers/ProductAttributeAutoc
 src/Sylius/Bundle/AdminBundle/Resources/assets/controllers/ProductTaxonTreeController.js
 src/Sylius/Bundle/AdminBundle/Resources/assets/controllers/TabsErrorsController.js
 src/Sylius/Bundle/AdminBundle/Resources/assets/images/404.svg
+src/Sylius/Bundle/AdminBundle/Resources/assets/images/loader.svg
 src/Sylius/Bundle/AdminBundle/Resources/assets/images/sylius-logo.svg
 src/Sylius/Bundle/AdminBundle/Resources/assets/images/flags/un.svg
 src/Sylius/Bundle/AdminBundle/Resources/assets/images/no_data.svg
@@ -5199,6 +5200,7 @@ src/Sylius/Bundle/AdminBundle/Resources/assets/styles/_body.scss
 src/Sylius/Bundle/AdminBundle/Resources/assets/styles/_datatable.scss
 src/Sylius/Bundle/AdminBundle/Resources/assets/styles/_collapse.scss
 src/Sylius/Bundle/AdminBundle/Resources/assets/styles/_loader.scss
+src/Sylius/Bundle/AdminBundle/Resources/assets/styles/_accordion.scss
 src/Sylius/Bundle/AdminBundle/Resources/assets/styles/_infinite-tree.scss
 src/Sylius/Bundle/AdminBundle/Resources/assets/styles/_flashes.scss
 src/Sylius/Bundle/AdminBundle/Resources/assets/styles/_avatar.scss
@@ -5935,6 +5937,7 @@ src/Sylius/Bundle/AdminBundle/templates/product/form/sections/attributes/autocom
 src/Sylius/Bundle/AdminBundle/templates/product/form/sections/attributes/list/translations/flag.html.twig
 src/Sylius/Bundle/AdminBundle/templates/product/form/sections/attributes/list/translations/field.html.twig
 src/Sylius/Bundle/AdminBundle/templates/product/form/sections/attributes/list/translations/field/input_group.html.twig
+src/Sylius/Bundle/AdminBundle/templates/product/form/sections/attributes/list/translations/field/language.html.twig
 src/Sylius/Bundle/AdminBundle/templates/product/form/sections/attributes/list/translations/field/label.html.twig
 src/Sylius/Bundle/AdminBundle/templates/product/form/sections/attributes/list/translations/field/input_group/apply_to_all.html.twig
 src/Sylius/Bundle/AdminBundle/templates/product/form/sections/attributes/list/translations/field/input_group/errors.html.twig
