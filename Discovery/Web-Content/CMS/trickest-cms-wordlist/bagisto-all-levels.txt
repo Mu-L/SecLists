@@ -15813,13 +15813,6 @@ shop/default/build/manifest.json
 default/build/manifest.json
 build/manifest.json
 manifest.json
-public/themes/installer/default/build/assets/app-affd9dfa.js
-themes/installer/default/build/assets/app-affd9dfa.js
-installer/default/build/assets/app-affd9dfa.js
-default/build/assets/app-affd9dfa.js
-build/assets/app-affd9dfa.js
-assets/app-affd9dfa.js
-app-affd9dfa.js
 public/themes/installer/default/build/assets/bagisto-installer-974e4842.woff
 themes/installer/default/build/assets/bagisto-installer-974e4842.woff
 installer/default/build/assets/bagisto-installer-974e4842.woff
@@ -15827,6 +15820,13 @@ default/build/assets/bagisto-installer-974e4842.woff
 build/assets/bagisto-installer-974e4842.woff
 assets/bagisto-installer-974e4842.woff
 bagisto-installer-974e4842.woff
+public/themes/installer/default/build/assets/app-a461b624.js
+themes/installer/default/build/assets/app-a461b624.js
+installer/default/build/assets/app-a461b624.js
+default/build/assets/app-a461b624.js
+build/assets/app-a461b624.js
+assets/app-a461b624.js
+app-a461b624.js
 public/themes/installer/default/build/assets/spinner-51c5cf50.svg
 themes/installer/default/build/assets/spinner-51c5cf50.svg
 installer/default/build/assets/spinner-51c5cf50.svg

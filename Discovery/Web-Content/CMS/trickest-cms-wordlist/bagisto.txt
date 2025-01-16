@@ -2153,8 +2153,8 @@ public/themes/shop/default/build/assets/spinner-51c5cf50.svg
 public/themes/shop/default/build/assets/bagisto-shop-5afe0d07.woff
 public/themes/shop/default/build/assets/hero-image-3170dce6.webp
 public/themes/shop/default/build/manifest.json
-public/themes/installer/default/build/assets/app-affd9dfa.js
 public/themes/installer/default/build/assets/bagisto-installer-974e4842.woff
+public/themes/installer/default/build/assets/app-a461b624.js
 public/themes/installer/default/build/assets/spinner-51c5cf50.svg
 public/themes/installer/default/build/assets/bagisto-logo-f02a1643.svg
 public/themes/installer/default/build/manifest.json
