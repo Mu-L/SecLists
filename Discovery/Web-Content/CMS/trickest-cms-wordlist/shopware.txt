@@ -136,6 +136,7 @@ src/Storefront/Resources/app/storefront/src/plugin/forms/form-ajax-pagination.pl
 src/Storefront/Resources/app/storefront/src/plugin/forms/form-submit-loader.plugin.js
 src/Storefront/Resources/app/storefront/src/plugin/forms/form-field-toggle.plugin.js
 src/Storefront/Resources/app/storefront/src/plugin/forms/form-auto-submit.plugin.js
+src/Storefront/Resources/app/storefront/src/plugin/forms/form-handler.plugin.js
 src/Storefront/Resources/app/storefront/src/plugin/forms/form-ajax-submit.plugin.js
 src/Storefront/Resources/app/storefront/src/plugin/forms/form-cms-handler.plugin.js
 src/Storefront/Resources/app/storefront/src/plugin/forms/form-country-state-select.plugin.js
@@ -334,6 +335,7 @@ src/Storefront/Resources/app/storefront/src/helper/polyfill-loader.helper.js
 src/Storefront/Resources/app/storefront/src/helper/vector.helper.js
 src/Storefront/Resources/app/storefront/src/helper/device-detection.helper.js
 src/Storefront/Resources/app/storefront/src/helper/focus-handler.helper.js
+src/Storefront/Resources/app/storefront/src/helper/form-validation.helper.js
 src/Storefront/Resources/app/storefront/src/helper/dom-access.helper.js
 src/Storefront/Resources/app/storefront/src/helper/feature.helper.js
 src/Storefront/Resources/app/storefront/src/helper/element-replace.helper.js
@@ -402,6 +404,7 @@ src/Storefront/Resources/app/storefront/test/plugin/captcha/google-re-captcha/go
 src/Storefront/Resources/app/storefront/test/plugin/clear-input/clear-input.plugin.test.js
 src/Storefront/Resources/app/storefront/test/plugin/cookie-configuration/cookie-configuration.plugin.test.js
 src/Storefront/Resources/app/storefront/test/plugin/buy-box/buy-box.plugin.test.js
+src/Storefront/Resources/app/storefront/test/plugin/forms/form-handler.plugin.test.js
 src/Storefront/Resources/app/storefront/test/plugin/forms/form-submit-loader-with-loading-spinner.plugin.template.html
 src/Storefront/Resources/app/storefront/test/plugin/forms/form-ajax-submit.plugin.test.js
 src/Storefront/Resources/app/storefront/test/plugin/forms/form-submit-loader-outer-form-submit-button.plugin.template.html
@@ -466,6 +469,7 @@ src/Storefront/Resources/app/storefront/test/helper/vector.helper.test.js
 src/Storefront/Resources/app/storefront/test/helper/element-replace.helper.template.html
 src/Storefront/Resources/app/storefront/test/helper/device-detection.helper.test.js
 src/Storefront/Resources/app/storefront/test/helper/arrow-navigation.helper.template.html
+src/Storefront/Resources/app/storefront/test/helper/form-validation.helper.test.js
 src/Storefront/Resources/app/storefront/test/helper/viewport-detection.helper.test.js
 src/Storefront/Resources/app/storefront/test/plugin-system/plugin.manager.test.js
 src/Storefront/Resources/app/storefront/.babelrc.js
@@ -995,6 +999,7 @@ src/Storefront/Resources/views/storefront/utilities/qr-code-modal.html.twig
 src/Storefront/Resources/views/storefront/utilities/offcanvas.html.twig
 src/Storefront/Resources/views/storefront/utilities/alert.html.twig
 src/Storefront/Resources/views/storefront/utilities/staging-info.html.twig
+src/Storefront/Resources/views/storefront/utilities/form-validation-config.html.twig
 src/Storefront/Resources/views/storefront/block/cms-block-image-bubble-row.html.twig
 src/Storefront/Resources/views/storefront/block/cms-block-image-text-cover.html.twig
 src/Storefront/Resources/views/storefront/block/cms-block-sidebar-filter.html.twig
@@ -1150,6 +1155,11 @@ src/Storefront/Resources/views/storefront/component/account/customer-overview-pe
 src/Storefront/Resources/views/storefront/component/account/customer-group-register-address-form.twig
 src/Storefront/Resources/views/storefront/component/account/customer-group-register.html.twig
 src/Storefront/Resources/views/storefront/component/analytics.html.twig
+src/Storefront/Resources/views/storefront/component/form/form-textarea.html.twig
+src/Storefront/Resources/views/storefront/component/form/form-select-birthday.html.twig
+src/Storefront/Resources/views/storefront/component/form/form-input.html.twig
+src/Storefront/Resources/views/storefront/component/form/form-checkbox.html.twig
+src/Storefront/Resources/views/storefront/component/form/form-select.html.twig
 src/Storefront/Resources/views/storefront/component/pagination.html.twig
 src/Storefront/Resources/views/storefront/component/privacy-notice.html.twig
 src/Storefront/Resources/views/storefront/component/pseudo-modal.html.twig
@@ -2519,10 +2529,14 @@ src/Core/Checkout/Document/DocumentIdStruct.php
 src/Core/Checkout/Document/DocumentGenerator/Counter.php
 src/Core/Checkout/Document/Controller/DocumentController.php
 src/Core/Checkout/Document/Extension/PdfRendererExtension.php
+src/Core/Checkout/Document/Extension/HtmlRendererExtension.php
 src/Core/Checkout/Document/Service/DocumentMerger.php
 src/Core/Checkout/Document/Service/PdfRenderer.php
 src/Core/Checkout/Document/Service/DocumentGenerator.php
 src/Core/Checkout/Document/Service/ReferenceInvoiceLoader.php
+src/Core/Checkout/Document/Service/AbstractDocumentTypeRenderer.php
+src/Core/Checkout/Document/Service/HtmlRenderer.php
+src/Core/Checkout/Document/Service/DocumentFileRendererRegistry.php
 src/Core/Checkout/Document/Service/DocumentConfigLoader.php
 src/Core/Checkout/Document/FileGenerator/FileGeneratorInterface.php
 src/Core/Checkout/Document/FileGenerator/FileTypes.php
@@ -3863,6 +3877,7 @@ src/Core/Content/Flow/Dispatching/Struct/Flow.php
 src/Core/Content/Flow/Dispatching/AbstractFlowLoader.php
 src/Core/Content/Flow/Dispatching/FlowFactory.php
 src/Core/Content/Flow/Dispatching/FlowState.php
+src/Core/Content/Flow/Dispatching/Storer/A11yRenderedDocumentStorer.php
 src/Core/Content/Flow/Dispatching/Storer/LanguageStorer.php
 src/Core/Content/Flow/Dispatching/Storer/ScalarValuesStorer.php
 src/Core/Content/Flow/Dispatching/Storer/OrderTransactionStorer.php
@@ -4601,12 +4616,14 @@ src/Core/Migration/V6_7/Migration1717572627RemoveImportExportProfileName.php
 src/Core/Migration/V6_7/Migration1720603803RemoveDefaultPaymentMethodFlows.php
 src/Core/Migration/V6_7/Migration1733136208AddH1ToCmsCategoryListing.php
 src/Core/Migration/V6_7/Migration1717573310ImportExportTechnicalNameRequired.php
+src/Core/Migration/V6_7/Migration1737430168RemoveFileTypeOfDocumentTable.php
 src/Core/Migration/V6_7/Migration1720610755RemoveDefaultPaymentMethodFromCustomer.php
 src/Core/Migration/V6_6/Migration1720094363AddStateForeignKeyToOrder.php
 src/Core/Migration/V6_6/Migration1702479623RemoveEsMultilingualFlag.php
 src/Core/Migration/V6_6/Migration1730059142AddNewSitemapConfigForExcludingHiddenProducts.php
 src/Core/Migration/V6_6/Migration1718658881AddValidationDataToOrderTransaction.php
 src/Core/Migration/V6_6/Migration1732608755MigrateNavigationSettingsForProductSlider.php
+src/Core/Migration/V6_6/Migration1736824370MigrationMailTemplateForDocument.php
 src/Core/Migration/V6_6/Migration1731576063UpdateProductComparisonTemplate.php
 src/Core/Migration/V6_6/Migration1673964565MigrateToReferencedColumns.php
 src/Core/Migration/V6_6/Migration1723193659UpdateVatPatternForCountry.php
@@ -4622,6 +4639,7 @@ src/Core/Migration/V6_6/Migration1720094362AddStateForeignKeyToOrderDelivery.php
 src/Core/Migration/V6_6/Migration1726557614FixProductComparisonIdealoWithHtmlFormat.php
 src/Core/Migration/V6_6/Migration1676367607RemoveIntegrationWriteAccessColumn.php
 src/Core/Migration/V6_6/Migration1712309989DropLanguageLocaleUnique.php
+src/Core/Migration/V6_6/Migration1736866790AddDocumentA11yMediaFileIdForDocumentTable.php
 src/Core/Migration/V6_6/Migration1707064042CartRemoveFK.php
 src/Core/Migration/V6_6/Migration1730191192UpdateDefaultSalutation.php
 src/Core/Migration/V6_6/Migration1697788982ChangeColumnAvailabilityRuleIdFromShippingMethodToNullable.php
@@ -4633,6 +4651,7 @@ src/Core/Migration/V6_6/Migration1673249981MigrateIsNewCustomerRule.php
 src/Core/Migration/V6_6/Migration1711461572ReplaceSortingOptionKeysWithSortingOptionIds.php
 src/Core/Migration/V6_6/Migration1696262484AddDefaultSendMailOptions.php
 src/Core/Migration/V6_6/Migration1703850843FixSearchConfig.php
+src/Core/Migration/V6_6/Migration1737105721MigrateOrderStateChangeDocumentToA11Y.php
 src/Core/Migration/V6_6/Migration1711461579FixDefaultMailFooter.php
 src/Core/Migration/V6_6/Migration1718615305AddEuToCountryTable.php
 src/Core/Migration/V6_6/Migration1710493619ScheduleMediaPathIndexer.php
@@ -4641,6 +4660,7 @@ src/Core/Migration/V6_6/Migration1736154963FixCyprusVatIdPattern.php
 src/Core/Migration/V6_6/Migration1729843379FixBelgianVatIdPattern.php
 src/Core/Migration/V6_6/Migration1714659357CanonicalProductVersion.php
 src/Core/Migration/V6_6/Migration1721811224AddInAppPurchaseGatewayUrl.php
+src/Core/Migration/V6_6/Migration1736831335AddGenerateDocumentTypesForDocumentConfig.php
 src/Core/Migration/V6_6/Migration1702982372FixProductCrossSellingSortByPrice.php
 src/Core/Migration/V6_6/Migration1701688920FixDownloadLinkMail.php
 src/Core/Migration/V6_6/Migration1715081559AdjustSentMailActionOnReviewSent.php
@@ -5296,6 +5316,7 @@ src/Core/Framework/Resources/views/documents/credit_note.html.twig
 src/Core/Framework/Resources/views/documents/style_base_portrait.css.twig
 src/Core/Framework/Resources/views/documents/style_base_landscape.css.twig
 src/Core/Framework/Resources/views/documents/storno.html.twig
+src/Core/Framework/Resources/views/documents/style_base_html.css.twig
 src/Core/Framework/Resources/views/documents/includes/table_close.html.twig
 src/Core/Framework/Resources/views/documents/includes/shipping_address.html.twig
 src/Core/Framework/Resources/views/documents/includes/loop.html.twig
@@ -5831,6 +5852,7 @@ src/Core/Framework/Event/EventData/EventDataCollection.php
 src/Core/Framework/Event/EventData/ScalarValueType.php
 src/Core/Framework/Event/UserAware.php
 src/Core/Framework/Event/NestedEventDispatcher.php
+src/Core/Framework/Event/A11yRenderedDocumentAware.php
 src/Core/Framework/Event/FlowLogEvent.php
 src/Core/Framework/RateLimiter/RateLimiterFactory.php
 src/Core/Framework/RateLimiter/Exception/RateLimitExceededException.php
@@ -7071,6 +7093,8 @@ src/Core/Framework/Test/Plugin/Requirement/_fixture/SwagRequirementValidTestExte
 src/Core/Framework/Test/Plugin/Requirement/_fixture/SwagRequirementValidTestExtension/composer.json
 src/Core/Framework/Test/Plugin/Requirement/_fixture/SwagRequirementValidSubpackageWildcardTest/composer.json
 src/Core/Framework/Test/Plugin/Requirement/_fixture/SwagTestValidateConflictsSpecificMessage/composer.json
+src/Core/Framework/Test/Plugin/Requirement/_fixture/SwagTestValidateConflictsValidOtherPluginDuringUpdateB/composer.json
+src/Core/Framework/Test/Plugin/Requirement/_fixture/SwagTestValidateConflictsValidOtherPluginDuringUpdateA/composer.json
 src/Core/Framework/Test/Plugin/Requirement/_fixture/SwagRequirementInvalidTest/composer.json
 src/Core/Framework/Test/Plugin/Requirement/_fixture/SwagTestValidateConflictsValid/composer.json
 src/Core/Framework/Test/Plugin/_fixture/archives/SwagFashionTheme.zip
@@ -11840,6 +11864,7 @@ src/Administration/Resources/app/administration/src/core/service/api/seo-url-tem
 src/Administration/Resources/app/administration/src/core/service/api/snippet-set.api.service.js
 src/Administration/Resources/app/administration/src/core/service/api/document.api.service.js
 src/Administration/Resources/app/administration/src/core/service/api/app-cms-blocks.service.js
+src/Administration/Resources/app/administration/src/core/service/api/mail.api.service.spec.js
 src/Administration/Resources/app/administration/src/core/service/api/scheduled-task.api.service.ts
 src/Administration/Resources/app/administration/src/core/service/api/notifications.service.js
 src/Administration/Resources/app/administration/src/core/service/api/known-ips.api.service.js
@@ -13122,8 +13147,10 @@ changelog/release-6-4-0-0/2020-11-23-implement-merge-customer-wishlist-with-gues
 changelog/release-6-6-0-3/2024-04-04-next-30065.md
 changelog/release-6-6-0-3/2024-04-03-cache-sales-channel-themes-per-sales-channel.md
 changelog/release-6-6-0-2/2024-03-26-migrate-cms-slot-config-for-sorting-options.md
+changelog/_unreleased/2024-12-17-a11y-html-implement-logic-for-customize-document-template-to-support-html-accessibility.md
 changelog/_unreleased/2024-11-05-set-group-promotions-cause-a-timeout-if-too-many-products-are-in-cart.md
 changelog/_unreleased/2024-04-25-implement-mt-banner-code-mod.md
+changelog/_unreleased/2025-01-17-shopware_admin_build_only_extensions-flag-is-now-only-working-in-production-builds.md
 changelog/_unreleased/2024-11-26-using-external-url-for-media-s-path-without-storing-physical-files.md
 changelog/_unreleased/2024-11-14-improve-mail-sender-fs.md
 changelog/_unreleased/2024-11-20-datepicker-shows-date-and-time-in-the-format-depending-on-the-locale.md
@@ -13134,14 +13161,18 @@ changelog/_unreleased/2024-11-13-fix-exception-in-elasticsearch-indexer.md
 changelog/_unreleased/2024-11-22-a11y-convey-how-the-promotion-information-when-submit.md
 changelog/_unreleased/2025-01-09-improve-method-call-usage.md
 changelog/_unreleased/2024-05-14-accessibility-improvements-for-the-main-navigation.md
+changelog/_unreleased/2025-01-08-a11y-html-mark-image-as-decorative.md
 changelog/_unreleased/2024-07-04-enforce-timezone-utc-for-database-connections.md
 changelog/_unreleased/2024-11-29-make-product-slider-defaults-accessible.md
+changelog/_unreleased/2025-01-23-fix-entity-search-result-entity-types.md
+changelog/_unreleased/2024-12-27-improve-accessibility-of-product-variant-switch.md
 changelog/_unreleased/2025-01-06-fix-removal-of-cancelled-extensions.md
 changelog/_unreleased/2025-01-06-fix-cyprus-vatid-pattern.md
 changelog/_unreleased/2024-05-22-navbar-for-main-navigation.md
 changelog/_unreleased/2025-01-14-disabled-autoplay-to-legal-advice-on-accessibility.md
 changelog/_unreleased/2024-12-03-fixed-elasticsearch-filter-parsing-of-translated-fields-in-product-related-entities.md
 changelog/_unreleased/2024-12-12-general-a11y-warning-hint-for-admin-options.md
+changelog/_unreleased/2025-01-07-improve-payment-method-indexer-context-state-usage.md
 changelog/_unreleased/2024-09-16-exchange-recursive-categories-macro-with-tpl.md
 changelog/_unreleased/2024-12-05-allow-duplicate-promotion.md
 changelog/_unreleased/.keep
@@ -13154,8 +13185,10 @@ changelog/_unreleased/2024-12-13-add-mysql-compression-flag.md
 changelog/_unreleased/2024-11-26-unify-cache-state-and-cookie-constants.md
 changelog/_unreleased/2024-12-12-add-enum-field.md
 changelog/_unreleased/2024-12-02-set-limit-for-generating-promotion-code.md
+changelog/_unreleased/2025-01-20-use-plugin-upgrade-version-to-check-conflicts.md
 changelog/_unreleased/2024-10-07-improve-admin-last-activity-behavior.md
 changelog/_unreleased/2025-01-07-allow-custom-pagination-parameters.md
+changelog/_unreleased/2025-01-21-added-theme-name-option.md
 changelog/_unreleased/2024-12-03-a11y-mobile-filter-panel.md
 changelog/_unreleased/2024-11-27-improved-a11y-for-3d-viewer.md
 changelog/_unreleased/2024-11-28-improved-checkout-for-a11y.md
@@ -13164,10 +13197,12 @@ changelog/_unreleased/2025-01-08-fix-memory-leak-in-tooltip-directive.md
 changelog/_unreleased/2025-01-07-introduce-global-template-data-for-language-and-navigation.md
 changelog/_unreleased/2024-12-17-shopping-cart-is-not-moved-to-new-token.md
 changelog/_unreleased/2024-12-18-improve-scheduled-task-recovery.md
+changelog/_unreleased/2024-12-23-consistent-javascript-filename-in-storefront.md
 changelog/_unreleased/2024-12-04-add-accessibility-to-embeded-videos.md
 changelog/_unreleased/2024-10-31-bulk-entity-extension.md
 changelog/_unreleased/2022-04-05-keep-track-of-changes-on-rule-builder-detail-page.md
 changelog/_unreleased/2024-11-26-deprecate-settwig-in-storefront-controller.md
+changelog/_unreleased/2024-12-17-refactor-form-handling.md
 changelog/_unreleased/changelog/_unreleased/2024-12-11-fix-webpack-plugin-config-order.md
 changelog/_unreleased/2024-12-27-set-default-search-result-sorting.md
 changelog/_unreleased/2024-12-06-fix-assert-in-state-machine-dump.md
@@ -17315,6 +17350,7 @@ adr/2020-12-02-removing-api-version.md
 adr/2021-06-14-introduce-jest-fail-on-console.md
 adr/2024-10-02-vue-2-options-api-to-vue-3-composition-api-conversion-codemod.md
 adr/2022-03-25-redis-cart-persister.md
+adr/2024-12-19-offer-html-alternative-to-our-pdf-standard-document.md
 adr/2020-06-25-implement-architecture-decision-records.md
 adr/2022-03-25-cache-stampede-protection.md
 adr/2023-05-16-php-enums.md
@@ -17448,6 +17484,7 @@ tests/migration/Core/MigrationNameAndTimestampTest.php
 tests/migration/Core/MigrationCommandTest.php
 tests/migration/Core/MigrationSourceTest.php
 tests/migration/Core/DateTimeTest.php
+tests/migration/Core/V6_7/Migration1737430168RemoveFileTypeOfDocumentTableTest.php
 tests/migration/Core/V6_7/Migration1717573310ImportExportTechnicalNameRequiredTest.php
 tests/migration/Core/V6_7/Migration1733136208AddH1ToCmsCategoryListingTest.php
 tests/migration/Core/V6_7/Migration1717572627RemoveImportExportProfileNameTest.php
@@ -17470,8 +17507,10 @@ tests/migration/Core/V6_6/Migration1729843379FixBelgianVatIdPatternTest.php
 tests/migration/Core/V6_6/Migration1716285861AddAppSourceTypeTest.php
 tests/migration/Core/V6_6/Migration1731576063UpdateProductComparisonTemplateTest.php
 tests/migration/Core/V6_6/Migration1730191192UpdateDefaultSalutationTest.php
+tests/migration/Core/V6_6/Migration1737105721MigrateOrderStateChangeDocumentToA11YTest.php
 tests/migration/Core/V6_6/Migration1724468738UpdatePostalCodeRequiredForTableCountryWithDefaultTrueTest.php
 tests/migration/Core/V6_6/Migration1715081559AdjustSentMailActionOnReviewSentTest.php
+tests/migration/Core/V6_6/Migration1736824370MigrationMailTemplateForDocumentTest.php
 tests/migration/Core/V6_6/Migration1720094363AddStateForeignKeyToOrderTest.php
 tests/migration/Core/V6_6/Migration1676367607RemoveIntegrationWriteAccessColumnTest.php
 tests/migration/Core/V6_6/Migration1735112885AddDefaultSearchResultSortingTest.php
@@ -17498,8 +17537,10 @@ tests/migration/Core/V6_6/Migration1718615305AddEuToCountryTableTest.php
 tests/migration/Core/V6_6/Migration1697788982ChangeColumnAvailabilityRuleIdFromShippingMethodToNullableTest.php
 tests/migration/Core/V6_6/Migration1729843381AddDefaultSettingConfigValueForReviewListingPerPageTest.php
 tests/migration/Core/V6_6/Migration1696262484AddDefaultSendMailOptionsTest.php
+tests/migration/Core/V6_6/Migration1736831335AddGenerateDocumentTypesForDocumentConfigTest.php
 tests/migration/Core/V6_6/Migration1716196653AddTechnicalNameToImportExportProfileTest.php
 tests/migration/Core/V6_6/Migration1673249981MigrateIsNewCustomerRuleTest.php
+tests/migration/Core/V6_6/Migration1736866790AddDocumentA11yMediaFileIdForDocumentTableTest.php
 tests/migration/Core/V6_6/Migration1703850843FixSearchConfigTest.php
 tests/migration/Core/V6_6/Migration1733323215AddHashToAppTemplateTest.php
 tests/migration/Core/V6_6/Migration1673964565MigrateToReferencedColumnsTest.php
@@ -19089,6 +19130,7 @@ tests/acceptance/tests/Checkout/RegisteredUserBuysProduct.spec.ts
 tests/acceptance/tests/Checkout/CheckoutWithDigitalProduct.spec.ts
 tests/acceptance/tests/Accessibility/StorefrontAccessibility.spec.ts
 tests/acceptance/tests/Settings/GoogleAnalyticsAcceptTracking.spec.ts
+tests/acceptance/tests/Settings/RuleAssignmentsEntities.spec.ts
 tests/acceptance/tests/Settings/BasicConsentBannerAcceptAllCookies.spec.ts
 tests/acceptance/tests/Settings/CreateCustomFieldSet.spec.ts
 tests/acceptance/tests/Settings/CustomerGroupRegistration.spec.ts
@@ -19116,6 +19158,7 @@ tests/acceptance/tests/BulkEdit/BulkEditCustomerInformation.spec.ts
 tests/acceptance/tests/Account/ChangeCustomerCredentials.spec.ts
 tests/acceptance/tests/Account/CommercialCustomerRegistration.spec.ts
 tests/acceptance/tests/Account/CancelOrder.spec.ts
+tests/acceptance/tests/Account/GuestCustomerRegistration.spec.ts
 tests/acceptance/tests/Account/CustomerRegistration.spec.ts
 tests/acceptance/tests/Account/ForgotPassword.spec.ts
 tests/acceptance/tests/Pagespeed/Lighthouse.spec.ts
@@ -19595,6 +19638,7 @@ tests/unit/Core/Checkout/Promotion/Cart/PromotionProcessorTest.php
 tests/unit/Core/Checkout/Promotion/Cart/PromotionCollectorTest.php
 tests/unit/Core/Checkout/Promotion/Subscriber/PromotionIndividualCodeRedeemerTest.php
 tests/unit/Core/Checkout/Document/Struct/DocumentGenerateOperationTest.php
+tests/unit/Core/Checkout/Document/SalesChannel/DocumentRouteTest.php
 tests/unit/Core/Checkout/Document/Renderer/InvoiceRendererTest.php
 tests/unit/Core/Checkout/Document/Renderer/OrderDocumentCriteriaFactoryTest.php
 tests/unit/Core/Checkout/Document/Twig/DocumentTemplateRendererTest.php
@@ -19605,11 +19649,13 @@ tests/unit/Core/Checkout/Document/Exception/InvalidDocumentGeneratorTypeExceptio
 tests/unit/Core/Checkout/Document/Exception/DocumentNumberAlreadyExistsExceptionTest.php
 tests/unit/Core/Checkout/Document/Exception/InvalidDocumentRendererExceptionTest.php
 tests/unit/Core/Checkout/Document/DocumentGenerator/CounterTest.php
+tests/unit/Core/Checkout/Document/Service/DocumentFileRendererRegistryTest.php
 tests/unit/Core/Checkout/Document/Service/DocumentMergerTest.php
 tests/unit/Core/Checkout/Document/Service/DocumentGeneratorTest.php
 tests/unit/Core/Checkout/Document/Service/DocumentConfigLoaderTest.php
 tests/unit/Core/Checkout/Document/Service/ReferenceInvoiceLoaderTest.php
 tests/unit/Core/Checkout/Document/Service/PdfRendererTest.php
+tests/unit/Core/Checkout/Document/Service/HtmlRendererTest.php
 tests/unit/Core/Checkout/Payment/PaymentProcessorTest.php
 tests/unit/Core/Checkout/Payment/PaymentExceptionTest.php
 tests/unit/Core/Checkout/Payment/SalesChannel/SortedPaymentMethodRouteTest.php
@@ -20098,6 +20144,7 @@ tests/unit/Core/Content/Flow/Dispatching/Storer/Stub/NonLanguageAwareEvent.php
 tests/unit/Core/Content/Flow/Dispatching/Storer/Stub/LanguageAwareEvent.php
 tests/unit/Core/Content/Flow/Dispatching/Storer/CustomerGroupStorerTest.php
 tests/unit/Core/Content/Flow/Dispatching/Storer/CustomAppStorerTest.php
+tests/unit/Core/Content/Flow/Dispatching/Storer/A11yRenderedDocumentStorerTest.php
 tests/unit/Core/Content/Flow/Dispatching/Storer/NewsletterRecipientStorerTest.php
 tests/unit/Core/Content/Flow/Dispatching/Storer/OrderStorerTest.php
 tests/unit/Core/Content/Flow/Dispatching/FlowDispatcherTest.php
@@ -20722,6 +20769,7 @@ tests/unit/Core/Framework/DependencyInjection/CompilerPass/FrameworkMigrationRep
 tests/unit/Core/Framework/DependencyInjection/ConfigurationTest.php
 tests/unit/Core/Framework/DependencyInjection/DependencyInjectionExceptionTest.php
 tests/unit/Core/Framework/Migration/MigrationStepTest.php
+tests/unit/Core/Framework/Migration/Command/CreateMigrationCommandTest.php
 tests/unit/Core/Framework/Migration/InstallEnvironmentTest.php
 tests/unit/Core/Framework/Migration/MigrationExceptionTest.php
 tests/unit/Core/Framework/App/_fixtures/manifest_no_setup.xml

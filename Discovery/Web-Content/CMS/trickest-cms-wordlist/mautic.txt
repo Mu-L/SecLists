@@ -550,6 +550,7 @@ app/migrations/Version20240708153845.php
 app/migrations/Version20210115065034.php
 app/migrations/Version20230615101328.php
 app/migrations/Version20210112162046.php
+app/migrations/Version20241227065658.php
 app/migrations/Version20221014061125.php
 app/migrations/Version20211026153057.php
 app/migrations/Version20221014081742.php
@@ -765,6 +766,7 @@ app/bundles/StageBundle/Config/services.php
 app/bundles/PointBundle/Assets/js/point.js
 app/bundles/PointBundle/Resources/views/SubscribedEvents/Search/global_point.html.twig
 app/bundles/PointBundle/Resources/views/SubscribedEvents/Search/global_trigger.html.twig
+app/bundles/PointBundle/Resources/views/SubscribedEvents/Search/global_group.html.twig
 app/bundles/PointBundle/Resources/views/Group/form.html.twig
 app/bundles/PointBundle/Resources/views/Group/list.html.twig
 app/bundles/PointBundle/Resources/views/FormTheme/Action/_pointaction_properties_row.html.twig
@@ -1796,7 +1798,9 @@ app/bundles/CoreBundle/Helper/Tree/JsPlumbFormatter.php
 app/bundles/CoreBundle/Helper/Tree/NodeFormatterInterface.php
 app/bundles/CoreBundle/Helper/Tree/IntNode.php
 app/bundles/CoreBundle/Helper/Tree/NodeInterface.php
+app/bundles/CoreBundle/DTO/GlobalSearchFilterDTO.php
 app/bundles/CoreBundle/Model/AbstractCommonModel.php
+app/bundles/CoreBundle/Model/GlobalSearchInterface.php
 app/bundles/CoreBundle/Model/VariantModelTrait.php
 app/bundles/CoreBundle/Model/MauticModelInterface.php
 app/bundles/CoreBundle/Model/TranslationModelTrait.php
@@ -2183,6 +2187,7 @@ app/bundles/CoreBundle/Configurator/Configurator.php
 app/bundles/CoreBundle/Configurator/Step/StepInterface.php
 app/bundles/CoreBundle/Service/BulkNotificationInterface.php
 app/bundles/CoreBundle/Service/BulkNotification.php
+app/bundles/CoreBundle/Service/GlobalSearch.php
 app/bundles/CoreBundle/Service/SearchCommandListInterface.php
 app/bundles/CoreBundle/Service/SearchCommandList.php
 app/bundles/CoreBundle/Service/LocalFileAdapterService.php
@@ -2521,6 +2526,7 @@ app/bundles/ReportBundle/Config/config.php
 app/bundles/ReportBundle/Config/services.php
 app/bundles/DynamicContentBundle/Assets/js/dynamicContent.js
 app/bundles/DynamicContentBundle/Resources/views/SubscribedEvents/Timeline/index.html.twig
+app/bundles/DynamicContentBundle/Resources/views/SubscribedEvents/Search/global.html.twig
 app/bundles/DynamicContentBundle/Resources/views/FormTheme/DynamicContentPushList/_dynamiccontentpush_list_row.html.twig
 app/bundles/DynamicContentBundle/Resources/views/FormTheme/Filter/layout.html.twig
 app/bundles/DynamicContentBundle/Resources/views/FormTheme/DynamicContentDecisionList/_dynamiccontentdecision_list_row.html.twig
@@ -2553,6 +2559,7 @@ app/bundles/DynamicContentBundle/MauticDynamicContentBundle.php
 app/bundles/DynamicContentBundle/EventListener/CampaignSubscriber.php
 app/bundles/DynamicContentBundle/EventListener/ChannelSubscriber.php
 app/bundles/DynamicContentBundle/EventListener/LeadSubscriber.php
+app/bundles/DynamicContentBundle/EventListener/SearchSubscriber.php
 app/bundles/DynamicContentBundle/EventListener/DynamicContentSubscriber.php
 app/bundles/DynamicContentBundle/EventListener/StatsSubscriber.php
 app/bundles/DynamicContentBundle/EventListener/BuildJsSubscriber.php
@@ -2606,6 +2613,7 @@ app/bundles/ChannelBundle/Command/SendChannelBroadcastCommand.php
 app/bundles/ChannelBundle/Command/ProcessMarketingMessagesQueueCommand.php
 app/bundles/ChannelBundle/Resources/views/SubscribedEvents/Timeline/index.html.twig
 app/bundles/ChannelBundle/Resources/views/SubscribedEvents/Timeline/queued_messages.html.twig
+app/bundles/ChannelBundle/Resources/views/SubscribedEvents/Search/global.html.twig
 app/bundles/ChannelBundle/Resources/views/Message/details.html.twig
 app/bundles/ChannelBundle/Resources/views/Message/form.html.twig
 app/bundles/ChannelBundle/Resources/views/Message/list_item.html.twig
@@ -2636,6 +2644,7 @@ app/bundles/ChannelBundle/Tests/Model/ChannelActionModelTest.php
 app/bundles/ChannelBundle/Tests/Model/FrequencyActionModelTest.php
 app/bundles/ChannelBundle/Tests/Event/ChannelBroadcastEventTest.php
 app/bundles/ChannelBundle/Tests/EventListener/CampaignSubscriberTest.php
+app/bundles/ChannelBundle/Tests/Controller/MessageControllerTest.php
 app/bundles/ChannelBundle/Tests/Controller/Api/MessageApiControllerTest.php
 app/bundles/ChannelBundle/Tests/Entity/MessageTest.php
 app/bundles/ChannelBundle/Security/Permissions/ChannelPermissions.php
@@ -2644,6 +2653,7 @@ app/bundles/ChannelBundle/ChannelEvents.php
 app/bundles/ChannelBundle/EventListener/CampaignSubscriber.php
 app/bundles/ChannelBundle/EventListener/MessageSubscriber.php
 app/bundles/ChannelBundle/EventListener/LeadSubscriber.php
+app/bundles/ChannelBundle/EventListener/SearchSubscriber.php
 app/bundles/ChannelBundle/EventListener/ReportSubscriber.php
 app/bundles/ChannelBundle/EventListener/ButtonSubscriber.php
 app/bundles/ChannelBundle/Controller/MessageController.php
@@ -2699,6 +2709,8 @@ app/bundles/LeadBundle/Resources/views/SubscribedEvents/Timeline/donotcontact.ht
 app/bundles/LeadBundle/Resources/views/SubscribedEvents/Timeline/ipadded.html.twig
 app/bundles/LeadBundle/Resources/views/SubscribedEvents/Timeline/import.html.twig
 app/bundles/LeadBundle/Resources/views/SubscribedEvents/Search/global.html.twig
+app/bundles/LeadBundle/Resources/views/SubscribedEvents/Search/global_company.html.twig
+app/bundles/LeadBundle/Resources/views/SubscribedEvents/Search/global_segment.html.twig
 app/bundles/LeadBundle/Resources/views/Note/_list.html.twig
 app/bundles/LeadBundle/Resources/views/Note/note.html.twig
 app/bundles/LeadBundle/Resources/views/Note/form.html.twig
@@ -3433,6 +3445,8 @@ app/bundles/NotificationBundle/Resources/views/Notification/form.html.twig
 app/bundles/NotificationBundle/Resources/views/Notification/list_graph.html.twig
 app/bundles/NotificationBundle/Resources/views/Notification/list.html.twig
 app/bundles/NotificationBundle/Resources/views/SubscribedEvents/Timeline/index.html.twig
+app/bundles/NotificationBundle/Resources/views/SubscribedEvents/Search/global-web.html.twig
+app/bundles/NotificationBundle/Resources/views/SubscribedEvents/Search/global-mobile.html.twig
 app/bundles/NotificationBundle/Resources/views/FormTheme/MobileNotification/_mobile_notification_mobileSettings_widget.html.twig
 app/bundles/NotificationBundle/Resources/views/FormTheme/NotificationSendList/_notificationsend_list_row.html.twig
 app/bundles/NotificationBundle/Resources/views/FormTheme/Config/_config_notification_config_widget.html.twig
@@ -3480,6 +3494,7 @@ app/bundles/NotificationBundle/Integration/OneSignalIntegration.php
 app/bundles/NotificationBundle/EventListener/CampaignSubscriber.php
 app/bundles/NotificationBundle/EventListener/ConfigSubscriber.php
 app/bundles/NotificationBundle/EventListener/ChannelSubscriber.php
+app/bundles/NotificationBundle/EventListener/SearchSubscriber.php
 app/bundles/NotificationBundle/EventListener/PageSubscriber.php
 app/bundles/NotificationBundle/EventListener/ReportSubscriber.php
 app/bundles/NotificationBundle/EventListener/StatsSubscriber.php
@@ -3950,6 +3965,7 @@ app/bundles/FormBundle/Tests/Controller/ResultControllerFunctionalTest.php
 app/bundles/FormBundle/Tests/Controller/FormControllerFunctionalTest.php
 app/bundles/FormBundle/Tests/Controller/ActionControllerFunctionalTest.php
 app/bundles/FormBundle/Tests/Controller/PublicControllerFunctionalTest.php
+app/bundles/FormBundle/Tests/Controller/AutoFillReadOnlyFormSubmissionTest.php
 app/bundles/FormBundle/Tests/Controller/resource/language/fr/FormBundle/validators.ini
 app/bundles/FormBundle/Tests/Controller/resource/language/fr/FormBundle/messages.ini
 app/bundles/FormBundle/Tests/Controller/resource/language/fr/config.json
@@ -4803,6 +4819,7 @@ app/bundles/SmsBundle/Resources/views/Sms/list_graph.html.twig
 app/bundles/SmsBundle/Resources/views/Sms/list.html.twig
 app/bundles/SmsBundle/Resources/views/SubscribedEvents/Timeline/index.html.twig
 app/bundles/SmsBundle/Resources/views/SubscribedEvents/Timeline/reply.html.twig
+app/bundles/SmsBundle/Resources/views/SubscribedEvents/Search/global.html.twig
 app/bundles/SmsBundle/Resources/views/FormTheme/SmsSendList/smssend_list_row.html.twig
 app/bundles/SmsBundle/Resources/views/FormTheme/Config/_config_smsconfig_widget.html.twig
 app/bundles/SmsBundle/Broadcast/BroadcastQuery.php
@@ -4860,6 +4877,7 @@ app/bundles/SmsBundle/EventListener/BroadcastSubscriber.php
 app/bundles/SmsBundle/EventListener/ChannelSubscriber.php
 app/bundles/SmsBundle/EventListener/LeadSubscriber.php
 app/bundles/SmsBundle/EventListener/CampaignSendSubscriber.php
+app/bundles/SmsBundle/EventListener/SearchSubscriber.php
 app/bundles/SmsBundle/EventListener/StatsSubscriber.php
 app/bundles/SmsBundle/EventListener/TrackingSubscriber.php
 app/bundles/SmsBundle/EventListener/MessageQueueSubscriber.php
@@ -5184,6 +5202,7 @@ plugins/MauticTagManagerBundle/README.md
 plugins/MauticTagManagerBundle/Resources/views/Tag/details.html.twig
 plugins/MauticTagManagerBundle/Resources/views/Tag/form.html.twig
 plugins/MauticTagManagerBundle/Resources/views/Tag/list.html.twig
+plugins/MauticTagManagerBundle/Resources/views/SubscribedEvents/Search/global.html.twig
 plugins/MauticTagManagerBundle/composer.json
 plugins/MauticTagManagerBundle/.github/workflows/close_pull_requests.yml
 plugins/MauticTagManagerBundle/Translations/en_US/flashes.ini
@@ -5199,6 +5218,7 @@ plugins/MauticTagManagerBundle/Tests/Functional/Stats/TagDependenciesTest.php
 plugins/MauticTagManagerBundle/Tests/Functional/Entity/TagRepositoryTest.php
 plugins/MauticTagManagerBundle/Security/Permissions/TagManagerPermissions.php
 plugins/MauticTagManagerBundle/Integration/TagManagerIntegration.php
+plugins/MauticTagManagerBundle/EventListener/SearchSubscriber.php
 plugins/MauticTagManagerBundle/Controller/BatchTagController.php
 plugins/MauticTagManagerBundle/Controller/TagController.php
 plugins/MauticTagManagerBundle/DependencyInjection/MauticTagManagerExtension.php
@@ -5240,6 +5260,7 @@ plugins/MauticFocusBundle/Resources/views/Focus/details.html.twig
 plugins/MauticFocusBundle/Resources/views/Focus/_list.html.twig
 plugins/MauticFocusBundle/Resources/views/Focus/form.html.twig
 plugins/MauticFocusBundle/Resources/views/Focus/list.html.twig
+plugins/MauticFocusBundle/Resources/views/SubscribedEvents/Search/global.html.twig
 plugins/MauticFocusBundle/Resources/views/FormTheme/FocusShowList/focusshow_list_row.html.twig
 plugins/MauticFocusBundle/Twig/Extension/FocusBundleExtension.php
 plugins/MauticFocusBundle/composer.json
@@ -5278,6 +5299,7 @@ plugins/MauticFocusBundle/EventListener/CampaignSubscriber.php
 plugins/MauticFocusBundle/EventListener/StatSubscriber.php
 plugins/MauticFocusBundle/EventListener/FormSubscriber.php
 plugins/MauticFocusBundle/EventListener/LeadSubscriber.php
+plugins/MauticFocusBundle/EventListener/SearchSubscriber.php
 plugins/MauticFocusBundle/EventListener/PageSubscriber.php
 plugins/MauticFocusBundle/EventListener/ReportSubscriber.php
 plugins/MauticFocusBundle/EventListener/FocusSubscriber.php
