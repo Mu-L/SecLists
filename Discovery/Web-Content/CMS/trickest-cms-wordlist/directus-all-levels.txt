@@ -2229,6 +2229,8 @@ schema.ts
 blue-apricots-drive.md
 .changeset/fresh-eels-pull.md
 fresh-eels-pull.md
+.changeset/tasty-sloths-build.md
+tasty-sloths-build.md
 .changeset/smooth-pans-share.md
 smooth-pans-share.md
 .changeset/dry-dryers-pretend.md
@@ -2263,6 +2265,8 @@ wet-days-joke.md
 ninety-pugs-serve.md
 .changeset/mighty-baboons-sip.md
 mighty-baboons-sip.md
+.changeset/tidy-shirts-occur.md
+tidy-shirts-occur.md
 .changeset/config.json
 config.json
 .changeset/thirty-doors-attack.md
