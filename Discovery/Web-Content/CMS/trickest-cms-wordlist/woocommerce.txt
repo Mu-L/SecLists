@@ -9550,6 +9550,7 @@ plugins/woocommerce/changelog/54650-product-filters-remove-clear-button-settings
 plugins/woocommerce/changelog/add-54666_add_tests
 plugins/woocommerce/changelog/54661-trunk
 plugins/woocommerce/changelog/54965-product-filters-fix-removable-chip-color
+plugins/woocommerce/changelog/55035-fix-brands-wp-error-check
 plugins/woocommerce/changelog/54623-fix-ces-feedback-title
 plugins/woocommerce/changelog/e2e-move-products-specs-new-structure
 plugins/woocommerce/changelog/dev-e2e-unskip-on-pressable-settings-woocom
@@ -9597,6 +9598,7 @@ plugins/woocommerce/changelog/e2e-clean-up-hpos-disabled-pw-project
 plugins/woocommerce/changelog/dev-bump-wp-env-10.17.0
 plugins/woocommerce/changelog/55005-fix-brands-permalink-false-issue
 plugins/woocommerce/changelog/54885-add-schema-document-object
+plugins/woocommerce/changelog/dev-e2e-make-marketing-test-runnable-on-wpcom
 plugins/woocommerce/changelog/54823-add-shipping-zone-method-ids
 plugins/woocommerce/changelog/fix-mini-cart-notices
 plugins/woocommerce/changelog/54746-issues-#54726-rename-collection-to-pickup
@@ -11809,6 +11811,7 @@ plugins/woocommerce-beta-tester/changelog/dev-prepare-beta-tester-release-2-5-1
 plugins/woocommerce-beta-tester/changelog/53865-dev-pnpm-9-15-0
 plugins/woocommerce-beta-tester/changelog/dev-bump-wp-env-10.17.0
 plugins/woocommerce-beta-tester/changelog/update-beta-tester-live-branch-install
+plugins/woocommerce-beta-tester/changelog/beta-tester-link
 plugins/woocommerce-beta-tester/changelog/53789-beta-tester-warnings
 plugins/woocommerce-beta-tester/plugin.php
 plugins/woocommerce-beta-tester/.eslintignore
