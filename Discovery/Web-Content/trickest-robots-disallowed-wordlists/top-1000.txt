@@ -32,7 +32,6 @@ $rpc/google.internal.maps.mapsjs.v1.MapsJsInternalService
 &action=
 &action=login
 &adid=
-&aff=
 &albumsOffset=
 &ana=
 &aspectratio=
@@ -2341,7 +2340,6 @@ $rpc/google.internal.maps.mapsjs.v1.MapsJsInternalService
 /?inf_contact_key=
 /?kaid=
 /?language=
-/?like_comment=
 /?local-download=
 /?nabe=
 /?ngs_
@@ -2466,7 +2464,6 @@ $rpc/google.internal.maps.mapsjs.v1.MapsJsInternalService
 /admin-ajax.php
 /admin/
 /ads/
-/adult
 /aeglodetailweb/api/msite/item?productId*
 /affiliate_amazon.cms*
 /affiliates_content*
@@ -3391,7 +3388,6 @@ $rpc/google.internal.maps.mapsjs.v1.MapsJsInternalService
 /playlists/relevance
 /pleasereg
 /plugins
-/plugins/?s=
 /plus
 /pmredirectshow/*
 /pmtoinavigation/*
@@ -3469,9 +3465,7 @@ $rpc/google.internal.maps.mapsjs.v1.MapsJsInternalService
 /raw
 /reactions
 /reactivation/
-/read
 /readcasts
-/reader
 /reader-*.html
 /reader.html
 /realtime_changes
@@ -4160,7 +4154,6 @@ $rpc/google.internal.maps.mapsjs.v1.MapsJsInternalService
 ?adcode=*
 ?adid=
 ?af=
-?aff=
 ?ajax
 ?ajax&wid
 ?albumsOffset=
@@ -4171,6 +4164,7 @@ $rpc/google.internal.maps.mapsjs.v1.MapsJsInternalService
 ?articleno=*
 ?attachment_id=
 ?attribute_key
+?author=
 ?autoenter=
 ?autoplay
 ?autoplay=
@@ -6267,9 +6261,7 @@ about?
 abs
 abtest
 abuse
-abuse/?
 abuse/group
-abuse?
 abuse_reports/new
 ac
 ac/
@@ -6846,6 +6838,7 @@ api/v1/playback
 api/v1/trebuchet
 api/v2/attachments
 api/v2/boards/*/reserved_posts
+api/v2/google_place_photos
 api/v3/account
 api/v3/ajax/bespoke/member/neu/specs
 api/v3/ajax/bespoke/public/neu/specs
@@ -8708,6 +8701,7 @@ chat
 chat-completions
 chat/
 chat/api/livechat
+chat/finance
 chats/
 check
 checkForm=
@@ -8717,7 +8711,6 @@ checkout-external
 checkout/
 checkout/cart
 checkout/package
-checkouthttp://moderncalculators.com/robots.txt
 checkoutnow
 checkouts
 checkpoint
@@ -8999,7 +8992,7 @@ community/*/comments
 community/*/feed
 community/*/live
 community/*/post
-community/*/profile/*http://commission.europa.eu/robots.txt
+community/*/profile
 community/*/topics
 community/*/trackback
 community/*?
@@ -9077,6 +9070,7 @@ compliance/security-assurance-faq-8
 compliance/security-assurance-faq-9
 compliance/security-assurance-faq-complete
 compliance/third-party-access/
+component/*
 components
 components/collaboration/api
 composer
@@ -9177,6 +9171,7 @@ content
 content-assembly
 content-claiming
 content-generator-embed
+content-guest/rss/channels
 content-marketing
 content/*/gated-pdfs
 content/*/gated-resources
@@ -9344,13 +9339,8 @@ core/services/aop-file-manager/file
 corgi$
 corgi/i18n
 corp
-corp/*.pdf$
 corp/Privacy.htm
 corp/Terms.htm
-corp/get-data
-corp/lps
-corp/solution
-corp/unlock-growth
 corporate
 corporate/contracts
 corporate/languageselection.aspx
@@ -9891,6 +9881,7 @@ devmailmobile/
 devmx/
 devopsconsole/images
 devrel-devsite
+dexscan
 dg-service
 dgs/education_culture/404_en.htm
 dhtml
@@ -11155,6 +11146,7 @@ fedsearch
 feed
 feed$
 feed.mhtml
+feed/$
 feed/activity
 feed/check
 feed/history
@@ -13397,8 +13389,6 @@ journal/projects
 journal/projects$
 journal/protein
 journal/protein$
-journal/purification
-journal/purification$
 journal/regeneration
 journal/regeneration$
 journal/securintell
@@ -13869,9 +13859,6 @@ lochp?
 loft/
 log
 log$
-log-in
-log-in$
-log-in?
 log?
 logger
 login
@@ -16102,7 +16089,6 @@ pls
 plugin
 plugins
 plugins.
-plugins/?s=
 plugins/search
 plus/check_hold
 plus/check_psn
@@ -16929,7 +16915,6 @@ react/static-6.16
 reactions?
 read
 readcommentshtml
-reader
 ready_sit_read/index.jhtml
 real-country
 real-estate-listings
@@ -17911,6 +17896,7 @@ search-ads-360
 search-ar-dev
 search-collections?
 search-console/scfe
+search-page/
 search-people?
 search-results
 search-webglimps
@@ -18338,14 +18324,12 @@ signature/voucher
 signed_out_modal.json
 signin
 signin$
-signin-oidc
 signin/$
 signin/inject
 signin?
 signin?expId=confirmEmail
 signout
 signout
-signout-oidc
 signup
 signup$
 signup-interstitial
@@ -18363,7 +18347,6 @@ signup/payment?
 signup?
 signup?fullscreen=
 signup_modal
-silent-login
 silva
 silver-linings-playbook
 since=
@@ -19070,6 +19053,7 @@ store/getreviews
 store/group/*
 store/images/favicons
 store/info/collection/p3_details_
+store/marketing-agency/help/
 store/movie-device
 store/movies/collection/p3_details_
 store/multi/collection/p3_details_
@@ -20050,7 +20034,6 @@ ty?
 typ$
 typ?
 typeahead
-typo
 typography
 typography$
 u
@@ -21912,7 +21895,6 @@ wp-admin
 wp-admin/
 wp-admin/admin-ajax.php
 wp-admin/admin-ajax.php
-wp-admin/admin-ajax.phphttp://rtbf.be/robots.txt
 wp-admin/admin-ajax.phphttp://starbucks.com/robots.txt
 wp-admin/load-scripts.php
 wp-admin/load-styles.php
@@ -21923,9 +21905,11 @@ wp-content/*.jpg
 wp-content/*.js
 wp-content/*.png
 wp-content/cache
+wp-content/cache/
 wp-content/client-mu-plugins
 wp-content/mu_plugins
 wp-content/plugins
+wp-content/plugins/
 wp-content/plugins/abm-sej/includes/ga/clarity.js
 wp-content/plugins/abm-sej/includes/ga/js/growthbook.js
 wp-content/plugins/abm-sej/includes/ga/js/pix.js
@@ -22002,6 +21986,7 @@ wp-json/ws-form
 wp-login
 wp-login.php
 wp-login.php
+wp-login.php*
 wp-signup.php
 wp-srv
 wp-stat/ad
