@@ -210,6 +210,7 @@ $rpc/google.internal.maps.mapsjs.v1.MapsJsInternalService
 ?*&ls=
 ?*ListingID=
 ?*ProfileID=
+?*action=
 ?*campaignId=
 ?*campaign_id=
 ?*cgi-bin=
@@ -485,6 +486,7 @@ _mobile.xml
 _modal.html
 _newsml.html
 _next/data
+_next/gtm
 _next/jwt
 _next/title
 _next/viewer
@@ -1471,8 +1473,8 @@ hp/video
 hpc/*/supported-applications.aspx?
 hpm
 hpmob
-http://microsoft.com/robots.txt
-http://w3.org/robots.txt
+http://amazon.co.uk/robots.txt
+http://slideshare.net/robots.txt
 hub?category=
 hz/contact-us/ajax/initiate-trusted-contact
 hz/help/contact/*/message/$
@@ -1626,6 +1628,7 @@ licensing-syndication
 limited-release
 link
 lite
+live-chat
 live_chat
 lm/R1XIHQVKXSKBNJ
 lm/R3HQ5WJSZK6QSO
@@ -3090,7 +3093,7 @@ wiki/Wikipedia_Diskussion:Checkuser
 wiki/Wikipedia_Diskussion:Spam-Blacklist-Log
 wiki/Wikipedia_talk%3AAbuse_reports
 wiki/Wikipedia_talk%3AAbuse_response
-wiki/Wikipedia_talk%3AAdministrator_electionshttp://cdn.jsdelivr.net/robots.txt
+wiki/Wikipedia_talk%3AAdministrator_electionshttp://facebook.com/robots.txt
 wiki/Wikipedia_talk%3AAdministrator_recall
 wiki/Wikipedia_talk%3AAdministrator_review
 wiki/Wikipedia_talk%3AAdministrators%27_noticeboard

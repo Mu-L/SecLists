@@ -619,6 +619,7 @@ app/migrations/Version20240226114528.php
 app/migrations/Version20191106152509.php
 app/migrations/Version20240725105507.php
 app/migrations/Version20230506113731.php
+app/migrations/Version20210211081531.php
 app/migrations/Version20211020114811.php
 app/migrations/Version20220722074516.php
 app/migrations/Version20190326190241.php
@@ -1929,6 +1930,7 @@ app/bundles/CoreBundle/Tests/Unit/Helper/CsvHelperTest.php
 app/bundles/CoreBundle/Tests/Unit/Helper/ArrayHelperTest.php
 app/bundles/CoreBundle/Tests/Unit/Helper/CookieHelperTest.php
 app/bundles/CoreBundle/Tests/Unit/Model/IteratorExportDataModelTest.php
+app/bundles/CoreBundle/Tests/Unit/Model/FormModelTest.php
 app/bundles/CoreBundle/Tests/Unit/Event/CustomTemplateEventTest.php
 app/bundles/CoreBundle/Tests/Unit/Security/Permissions/CorePermissionsTest.php
 app/bundles/CoreBundle/Tests/Unit/Update/StepProviderTest.php
@@ -2902,6 +2904,7 @@ app/bundles/LeadBundle/Event/LeadListFilteringEvent.php
 app/bundles/LeadBundle/Event/LeadListFiltersOperatorsEvent.php
 app/bundles/LeadBundle/Event/PointsChangeEvent.php
 app/bundles/LeadBundle/Event/SegmentOperatorQueryBuilderEvent.php
+app/bundles/LeadBundle/Event/SaveBatchLeadsEvent.php
 app/bundles/LeadBundle/Event/ListPreProcessListEvent.php
 app/bundles/LeadBundle/Event/ListChangeEvent.php
 app/bundles/LeadBundle/Event/FormAdjustmentEvent.php

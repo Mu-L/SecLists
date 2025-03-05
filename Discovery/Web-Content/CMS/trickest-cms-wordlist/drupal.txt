@@ -4401,7 +4401,6 @@ core/modules/layout_builder/src/LayoutBuilderEvents.php
 core/modules/layout_builder/src/Section.php
 core/modules/layout_builder/src/SectionListTrait.php
 core/modules/layout_builder/src/Controller/LayoutBuilderController.php
-core/modules/layout_builder/src/Controller/LayoutBuilderHtmlEntityFormController.php
 core/modules/layout_builder/src/Controller/ChooseSectionController.php
 core/modules/layout_builder/src/Controller/LayoutRebuildTrait.php
 core/modules/layout_builder/src/Controller/MoveBlockController.php
@@ -4514,6 +4513,7 @@ core/modules/layout_builder/tests/src/Functional/LayoutDisplayTest.php
 core/modules/layout_builder/tests/src/Functional/LayoutBuilderFieldBlockEntityReferenceCacheTagsTest.php
 core/modules/layout_builder/tests/src/Functional/LayoutBuilderThemeSuggestionsTest.php
 core/modules/layout_builder/tests/src/Functional/LayoutBuilderDefaultValuesTest.php
+core/modules/layout_builder/tests/modules/layout_builder_form_block_test/src/Hook/LayoutBuilderFormBlockTestHooks.php
 core/modules/layout_builder/tests/modules/layout_builder_form_block_test/src/Plugin/Block/TestFormApiFormBlock.php
 core/modules/layout_builder/tests/modules/layout_builder_form_block_test/src/Plugin/Block/TestInlineTemplateFormBlock.php
 core/modules/layout_builder/tests/modules/layout_builder_form_block_test/layout_builder_form_block_test.info.yml
@@ -4545,9 +4545,6 @@ core/modules/layout_builder/tests/modules/layout_builder_theme_suggestions_test/
 core/modules/layout_builder/tests/modules/layout_builder_theme_suggestions_test/templates/field--node--body--bundle-with-section-field--default.html.twig
 core/modules/layout_builder/tests/modules/layout_builder_theme_suggestions_test/layout_builder_theme_suggestions_test.info.yml
 core/modules/layout_builder/tests/modules/layout_builder_theme_suggestions_test/layout_builder_theme_suggestions_test.module
-core/modules/layout_builder/tests/modules/layout_builder_decoration_test/layout_builder_decoration_test.info.yml
-core/modules/layout_builder/tests/modules/layout_builder_decoration_test/src/Controller/LayoutBuilderDecorationTestHtmlEntityFormController.php
-core/modules/layout_builder/tests/modules/layout_builder_decoration_test/layout_builder_decoration_test.services.yml
 core/modules/layout_builder/tests/modules/layout_builder_extra_field_test/src/Hook/LayoutBuilderExtraFieldTestHooks.php
 core/modules/layout_builder/tests/modules/layout_builder_extra_field_test/layout_builder_extra_field_test.info.yml
 core/modules/layout_builder/tests/modules/layout_builder_element_test/src/EventSubscriber/TestPrepareLayout.php
@@ -5053,7 +5050,6 @@ core/modules/block/tests/modules/block_test/src/ContextProvider/MultipleStaticCo
 core/modules/block/tests/modules/block_test/src/Plugin/Block/TestContextAwareBlock.php
 core/modules/block/tests/modules/block_test/src/Plugin/Block/TestContextAwareNoValidContextOptionsBlock.php
 core/modules/block/tests/modules/block_test/src/Plugin/Block/TestMultipleFormsBlock.php
-core/modules/block/tests/modules/block_test/src/Plugin/Block/TestXSSTitleBlock.php
 core/modules/block/tests/modules/block_test/src/Plugin/Block/TestContextAwareUnsatisfiedBlock.php
 core/modules/block/tests/modules/block_test/src/Plugin/Block/TestFormBlock.php
 core/modules/block/tests/modules/block_test/src/Plugin/Block/TestCacheBlock.php
@@ -7386,6 +7382,7 @@ core/modules/system/tests/modules/form_test/src/Form/FormTestRangeForm.php
 core/modules/system/tests/modules/form_test/src/Form/TreeConfigTargetForm.php
 core/modules/system/tests/modules/form_test/src/Form/FormTestGetForm.php
 core/modules/system/tests/modules/form_test/src/Form/FormTestFormStateValuesCleanAdvancedForm.php
+core/modules/system/tests/modules/form_test/src/Form/FormTestSubmitButtonAttributeForm.php
 core/modules/system/tests/modules/form_test/src/Form/FormTestRequiredAttributeForm.php
 core/modules/system/tests/modules/form_test/src/Form/FormTestVerticalTabsAccessForm.php
 core/modules/system/tests/modules/form_test/src/Form/FormTestValidateNoToken.php
@@ -7524,6 +7521,7 @@ core/modules/system/tests/modules/keyvalue_test/src/Hook/KeyvalueTestHooks.php
 core/modules/system/tests/modules/keyvalue_test/keyvalue_test.info.yml
 core/modules/system/tests/modules/system_dependencies_test/system_dependencies_test.info.yml
 core/modules/system/tests/modules/module_autoload_test/src/SomeClass.php
+core/modules/system/tests/modules/module_autoload_test/module_autoload_test.services.yml
 core/modules/system/tests/modules/module_autoload_test/module_autoload_test.module
 core/modules/system/tests/modules/module_autoload_test/module_autoload_test.info.yml
 core/modules/system/tests/modules/session_test/session_test.services.yml
@@ -9999,6 +9997,7 @@ core/modules/views/tests/src/Functional/UserPathTest.php
 core/modules/views/tests/src/Functional/UserBatchActionTest.php
 core/modules/views/tests/src/Functional/SearchMultilingualTest.php
 core/modules/views/tests/src/Functional/GenericTest.php
+core/modules/views/tests/src/Functional/ViewStyleHtmlListTest.php
 core/modules/views/tests/src/Functional/GlossaryTest.php
 core/modules/views/tests/src/Functional/ViewAjaxTest.php
 core/modules/views/tests/src/Functional/Plugin/EntityArgumentTest.php
@@ -10045,6 +10044,7 @@ core/modules/views/tests/src/Functional/SearchIntegrationTest.php
 core/modules/views/tests/src/Functional/ViewsThemeIntegrationTest.php
 core/modules/views/tests/src/Functional/Update/EntityArgumentUpdateTest.php
 core/modules/views/tests/src/Functional/Update/UserRememberRolesFilterSettingTest.php
+core/modules/views/tests/src/Functional/Update/ViewsAddDefaultTableCssClassUpdateTest.php
 core/modules/views/tests/src/Functional/DefaultViewsTest.php
 core/modules/views/tests/src/Functional/Handler/AreaTitleWebTest.php
 core/modules/views/tests/src/Functional/Handler/FieldDropButtonTest.php
@@ -10069,8 +10069,10 @@ core/modules/views/tests/themes/views_test_theme/templates/views-view-field.html
 core/modules/views/tests/themes/views_test_theme/views_test_theme.info.yml
 core/modules/views/tests/themes/views_test_checkboxes_theme/views_test_checkboxes_theme.info.yml
 core/modules/views/tests/themes/views_test_checkboxes_theme/views_test_checkboxes_theme.theme
+core/modules/views/tests/fixtures/update/views.view.test_table_css_class.yml
 core/modules/views/tests/fixtures/update/entity-id-argument.php
 core/modules/views/tests/fixtures/update/views.view.test_entity_id_argument_update.yml
+core/modules/views/tests/fixtures/update/test_table_css_class.php
 core/modules/views/tests/modules/views_test_config/src/Hook/ViewsTestConfigHooks.php
 core/modules/views/tests/modules/views_test_config/views_test_config.info.yml
 core/modules/views/tests/modules/views_test_config/config/schema/views_test_config.views.schema.yml
@@ -10135,6 +10137,7 @@ core/modules/views/tests/modules/views_test_config/test_views/views.view.test_gl
 core/modules/views/tests/modules/views_test_config/test_views/views.view.test_argument_validator_term.yml
 core/modules/views/tests/modules/views_test_config/test_views/views.view.test_exposed_form_buttons.yml
 core/modules/views/tests/modules/views_test_config/test_views/views.view.test_page_display_route.yml
+core/modules/views/tests/modules/views_test_config/test_views/views.view.test_style_html_list_ordered.yml
 core/modules/views/tests/modules/views_test_config/test_views/views.view.test_entity_multivalue_basefield.yml
 core/modules/views/tests/modules/views_test_config/test_views/views.view.test_field_header.yml
 core/modules/views/tests/modules/views_test_config/test_views/views.view.test_style_mapping.yml
@@ -12054,6 +12057,7 @@ core/tests/Drupal/KernelTests/Core/Archiver/ArchiverTestBase.php
 core/tests/Drupal/KernelTests/Core/Archiver/TarTest.php
 core/tests/Drupal/KernelTests/Core/StreamWrapper/StreamWrapperManagerTest.php
 core/tests/Drupal/KernelTests/Core/Element/PathElementFormTest.php
+core/tests/Drupal/KernelTests/Core/ClassLoader/BackwardsCompatibilityClassLoaderTest.php
 core/tests/Drupal/KernelTests/Core/Site/SettingsRewriteTest.php
 core/tests/Drupal/KernelTests/Core/Condition/ConditionPluginCollectionTest.php
 core/tests/Drupal/KernelTests/Core/Theme/ThemeSettingsTest.php
@@ -12676,7 +12680,6 @@ core/tests/Drupal/Tests/UnitTestCase.php
 core/tests/Drupal/Tests/PhpUnitCompatibilityTrait.php
 core/tests/Drupal/Tests/SchemaCheckTestTrait.php
 core/tests/Drupal/Tests/TestRequirementsTrait.php
-core/tests/Drupal/Tests/Core/StringTranslation/TranslationWrapperTest.php
 core/tests/Drupal/Tests/Core/StringTranslation/TranslatableMarkupTest.php
 core/tests/Drupal/Tests/Core/StringTranslation/ByteSizeMarkupTest.php
 core/tests/Drupal/Tests/Core/StringTranslation/PluralTranslatableMarkupTest.php
@@ -16642,6 +16645,7 @@ core/lib/Drupal/Core/StreamWrapper/StreamWrapperManagerInterface.php
 core/lib/Drupal/Core/StreamWrapper/StreamWrapperManager.php
 core/lib/Drupal/Core/StreamWrapper/AssetsStream.php
 core/lib/Drupal/Core/DrupalKernel.php
+core/lib/Drupal/Core/ClassLoader/BackwardsCompatibilityClassLoader.php
 core/lib/Drupal/Core/Site/MaintenanceMode.php
 core/lib/Drupal/Core/Site/Settings.php
 core/lib/Drupal/Core/Site/SettingsEditor.php
@@ -17364,6 +17368,7 @@ core/lib/Drupal/Core/Executable/ExecutablePluginBase.php
 core/lib/Drupal/Core/DependencyInjection/Compiler/AuthenticationProviderPass.php
 core/lib/Drupal/Core/DependencyInjection/Compiler/DeprecatedServicePass.php
 core/lib/Drupal/Core/DependencyInjection/Compiler/RegisterEventSubscribersPass.php
+core/lib/Drupal/Core/DependencyInjection/Compiler/BackwardsCompatibilityClassLoaderPass.php
 core/lib/Drupal/Core/DependencyInjection/Compiler/SuperUserAccessPolicyPass.php
 core/lib/Drupal/Core/DependencyInjection/Compiler/RegisterServicesForDestructionPass.php
 core/lib/Drupal/Core/DependencyInjection/Compiler/CorsCompilerPass.php
