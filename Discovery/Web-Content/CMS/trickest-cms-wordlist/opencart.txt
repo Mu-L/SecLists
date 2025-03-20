@@ -638,7 +638,6 @@ upload/admin/controller/localisation/tax_class.php
 upload/admin/controller/localisation/stock_status.php
 upload/admin/controller/localisation/return_action.php
 upload/admin/controller/localisation/weight_class.php
-upload/admin/controller/localisation/product_identifier.php
 upload/admin/controller/localisation/return_reason.php
 upload/admin/controller/localisation/address_format.php
 upload/admin/controller/localisation/subscription_status.php
@@ -1810,7 +1809,6 @@ upload/admin/view/javascript/bootstrap/js/bootstrap.js
 upload/admin/view/javascript/bootstrap/js/bootstrap.bundle.js
 upload/admin/view/javascript/bootstrap/js/bootstrap.bundle.min.js
 upload/admin/view/javascript/bootstrap/js/bootstrap.min.js.map
-upload/admin/view/javascript/nunjucks-slim.js
 upload/admin/view/javascript/jquery/jquery-ui/external/jquery/jquery.js
 upload/admin/view/javascript/jquery/jquery-ui/index.html
 upload/admin/view/javascript/jquery/jquery-ui/jquery-ui.min.js
