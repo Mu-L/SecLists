@@ -3196,6 +3196,8 @@ plugins/woocommerce/src/Blocks/BlockTypes/ProductSummary.php
 plugins/woocommerce/src/Blocks/BlockTypes/ProductStockIndicator.php
 plugins/woocommerce/src/Blocks/BlockTypes/MiniCartCheckoutButtonBlock.php
 plugins/woocommerce/src/Blocks/BlockTypes/ProductFilterPriceSlider.php
+plugins/woocommerce/src/Blocks/BlockTypes/Reviews/ProductReviewsTitle.php
+plugins/woocommerce/src/Blocks/BlockTypes/Reviews/ProductReviewRating.php
 plugins/woocommerce/src/Blocks/BlockTypes/Reviews/ProductReviews.php
 plugins/woocommerce/src/Blocks/BlockTypes/ReviewsByProduct.php
 plugins/woocommerce/src/Blocks/BlockTypes/CatalogSorting.php
@@ -3637,7 +3639,6 @@ plugins/woocommerce/client/admin/client/typings/global.d.ts
 plugins/woocommerce/client/admin/client/typings/index.d.ts
 plugins/woocommerce/client/admin/client/typings/wp-data.d.ts
 plugins/woocommerce/client/admin/client/wp-admin-scripts/settings-embed/index.tsx
-plugins/woocommerce/client/admin/client/wp-admin-scripts/onboarding-product-notice/index.js
 plugins/woocommerce/client/admin/client/wp-admin-scripts/command-palette/register-command-with-tracking.js
 plugins/woocommerce/client/admin/client/wp-admin-scripts/command-palette/index.js
 plugins/woocommerce/client/admin/client/wp-admin-scripts/command-palette/use-edited-post-type.js
@@ -6463,6 +6464,14 @@ plugins/woocommerce/client/blocks/assets/js/blocks/rating-filter/style.scss
 plugins/woocommerce/client/blocks/assets/js/blocks/rating-filter/deprecated.tsx
 plugins/woocommerce/client/blocks/assets/js/blocks/rating-filter/types.ts
 plugins/woocommerce/client/blocks/assets/js/blocks/product-reviews/edit.tsx
+plugins/woocommerce/client/blocks/assets/js/blocks/product-reviews/inner-blocks/reviews-title/edit.tsx
+plugins/woocommerce/client/blocks/assets/js/blocks/product-reviews/inner-blocks/reviews-title/block.json
+plugins/woocommerce/client/blocks/assets/js/blocks/product-reviews/inner-blocks/reviews-title/index.ts
+plugins/woocommerce/client/blocks/assets/js/blocks/product-reviews/inner-blocks/reviews-title/style.scss
+plugins/woocommerce/client/blocks/assets/js/blocks/product-reviews/inner-blocks/reviews-title/types.ts
+plugins/woocommerce/client/blocks/assets/js/blocks/product-reviews/inner-blocks/review-rating/edit.tsx
+plugins/woocommerce/client/blocks/assets/js/blocks/product-reviews/inner-blocks/review-rating/block.json
+plugins/woocommerce/client/blocks/assets/js/blocks/product-reviews/inner-blocks/review-rating/index.tsx
 plugins/woocommerce/client/blocks/assets/js/blocks/product-reviews/template.ts
 plugins/woocommerce/client/blocks/assets/js/blocks/product-reviews/save.tsx
 plugins/woocommerce/client/blocks/assets/js/blocks/product-reviews/block.json
@@ -7147,6 +7156,7 @@ plugins/woocommerce/client/blocks/assets/css/abstracts/_colors.scss
 plugins/woocommerce/client/blocks/assets/css/abstracts/_variables.scss
 plugins/woocommerce/client/blocks/assets/css/abstracts/_mixins.scss
 plugins/woocommerce/client/blocks/assets/css/style.scss
+plugins/woocommerce/client/blocks/blocks.ini
 plugins/woocommerce/client/blocks/.browserslistrc
 plugins/woocommerce/client/blocks/babel.config.js
 plugins/woocommerce/client/blocks/tests/utils/find-by-text.ts
@@ -7886,6 +7896,7 @@ plugins/woocommerce/changelog/fix-textdomain-loading-warning-in-woocommerce-9-80
 plugins/woocommerce/changelog/55796-add-54370-hide_flat_rate_when_free
 plugins/woocommerce/changelog/add-product-details-alignment-options
 plugins/woocommerce/changelog/56362-tweak-skip-a-flaky-test-for-analytics-product-refund
+plugins/woocommerce/changelog/update-remove-payments-menu-item-for-woopayments-complete-accounts
 plugins/woocommerce/changelog/.gitkeep
 plugins/woocommerce/changelog/e2e-fix-tests-with-wpcore-6.8
 plugins/woocommerce/changelog/56141-update-56082-list-non-active-plugins-and-themes-de-selected
@@ -7894,6 +7905,7 @@ plugins/woocommerce/changelog/fix-product-button-dependencies
 plugins/woocommerce/changelog/56283-55678-fix-log-fatal-error
 plugins/woocommerce/changelog/product-filters-display-relocation
 plugins/woocommerce/changelog/product-filters-load-wc-settings
+plugins/woocommerce/changelog/56607-55081-variable-product-with-attribute-named-variation-crashes-abstractorderconfirmationblock
 plugins/woocommerce/changelog/update-expose-setExtensionData
 plugins/woocommerce/changelog/add-initial-product-reviews-block
 plugins/woocommerce/changelog/fix-56399
@@ -7920,6 +7932,7 @@ plugins/woocommerce/changelog/56244-update-improve-shipping-option-card
 plugins/woocommerce/changelog/56117-iapi-woocommerce-store-switch-cart-endpoint
 plugins/woocommerce/changelog/fix-menu-item-active-status
 plugins/woocommerce/changelog/refactor-show-shipping-usage-54894
+plugins/woocommerce/changelog/56575-dev-bump-babel-deps
 plugins/woocommerce/changelog/fix-54579-order-month-query
 plugins/woocommerce/changelog/56131-fix-iapi-only-use-get-server-context-when-it-exists
 plugins/woocommerce/changelog/update-top-level-validation-rules-54875
@@ -7927,10 +7940,13 @@ plugins/woocommerce/changelog/update-e2e-deps-to-wp-6.8
 plugins/woocommerce/changelog/remove-composer-from-blocks
 plugins/woocommerce/changelog/55989-fix-additional-fields-bugs
 plugins/woocommerce/changelog/refactor-send-canonical-url-from-server-for-paginated-filter-url
+plugins/woocommerce/changelog/revert-show-local-pickup-rates
+plugins/woocommerce/changelog/fix-56371-out-of-stock-products
 plugins/woocommerce/changelog/55853-fix-shipping-calculator-address-validation
 plugins/woocommerce/changelog/56233-update-extensions-sort-order
 plugins/woocommerce/changelog/tweak-product-lookup-comp-index
 plugins/woocommerce/changelog/56338-update-product-gallery-sale-badge-example
+plugins/woocommerce/changelog/56520-fix-default-payment-method-returns-array
 plugins/woocommerce/changelog/55978-fix-endpoints
 plugins/woocommerce/changelog/fix-classic-cart-block-page-detection-56041
 plugins/woocommerce/changelog/e2e-run-more-e2e-jobs-for-e2e-changes
@@ -7938,6 +7954,7 @@ plugins/woocommerce/changelog/fix-add-to-cart-with-options-missing-stylesheets
 plugins/woocommerce/changelog/56154-iapi-bug-in-wp-6.6-workaround
 plugins/woocommerce/changelog/fix-import-product-not-complete
 plugins/woocommerce/changelog/fix-55947
+plugins/woocommerce/changelog/fix-55015-pending-moderation-comments-query
 plugins/woocommerce/changelog/56292-patch-3
 plugins/woocommerce/changelog/56146-update-blueprint-override-warning
 plugins/woocommerce/changelog/56379-fix-position-disconnect-modal-title
@@ -7956,16 +7973,19 @@ plugins/woocommerce/changelog/56257-update-wp-control-button-margin
 plugins/woocommerce/changelog/fix-54822
 plugins/woocommerce/changelog/improve-woo-content-styles-in-block-email
 plugins/woocommerce/changelog/fix-coupons-II
+plugins/woocommerce/changelog/fix-53911-async-load-order-custom-field-meta-keys
 plugins/woocommerce/changelog/update-56188-improve-switcher-incentive-handling
 plugins/woocommerce/changelog/fix-54286-limit-wc-comment-count-transient-clearing
 plugins/woocommerce/changelog/56291-update-product-gallery-thumnails-render
 plugins/woocommerce/changelog/update-disable-core-profiler-free-feature-fallback
+plugins/woocommerce/changelog/56627-dev-remove-is-experimental-flag
 plugins/woocommerce/changelog/improve-woo-email-content-placeholder-block
 plugins/woocommerce/changelog/fix-ci-workflow-on-tagging
 plugins/woocommerce/changelog/update-settings-payment-partner-recommendations
 plugins/woocommerce/changelog/e2e-remove-page-conversion-to-classic
 plugins/woocommerce/changelog/e2e-fix-install-wc
 plugins/woocommerce/changelog/56136-fix-wc_delete_transients
+plugins/woocommerce/changelog/fix-56509-core-profiler-extensions-copy-alignment
 plugins/woocommerce/changelog/fix-56170-coming-soon-upgrade
 plugins/woocommerce/changelog/55767-remove-invalid-trailing-space-55766
 plugins/woocommerce/changelog/add-55696-frontend
@@ -7973,6 +7993,7 @@ plugins/woocommerce/changelog/update-product-gallery-refactor-and-performance-im
 plugins/woocommerce/changelog/fix-55952
 plugins/woocommerce/changelog/dev-babel-transforms-cleanup
 plugins/woocommerce/changelog/dev-monorepo-internal-packages-linking-fixes
+plugins/woocommerce/changelog/add-55729-product-review-title-and-rating-blocks
 plugins/woocommerce/changelog/fix-52136
 plugins/woocommerce/changelog/56174-dev-fix-call-abtest
 plugins/woocommerce/changelog/fix-56523-order-total-update
@@ -7982,7 +8003,9 @@ plugins/woocommerce/changelog/fix-flaky-tests-save-site-editor-entities
 plugins/woocommerce/changelog/consolidate-isblocktheme-setting
 plugins/woocommerce/changelog/55945-bug-brands-schema-data
 plugins/woocommerce/changelog/skip-failing-cart-and-checkout-e2e-tests
+plugins/woocommerce/changelog/fix-checkout-validation-dom-error
 plugins/woocommerce/changelog/dev-remove-woo-interactivity
+plugins/woocommerce/changelog/update-merge-product-notices
 plugins/woocommerce/changelog/e2e-fix-flaky-product-review
 plugins/woocommerce/changelog/56202-add-55723-product-details-block-create-product-description-block-3
 plugins/woocommerce/changelog/fix-55980
@@ -7996,9 +8019,13 @@ plugins/woocommerce/changelog/56275-55121-fix-fatal-error
 plugins/woocommerce/changelog/56391-add-report-email-labels-filter
 plugins/woocommerce/changelog/product-filters-conditional-router-region
 plugins/woocommerce/changelog/e2e-remove-rest-api-dependency
+plugins/woocommerce/changelog/fix-remote-inbox-notif-stored-state
 plugins/woocommerce/changelog/update-hide-printful-when-installed
+plugins/woocommerce/changelog/56506-remove-wp-components-types
 plugins/woocommerce/changelog/update-move-use-product-type-selector-hook
+plugins/woocommerce/changelog/fix-55728
 plugins/woocommerce/changelog/fix-wrong-shipping-posted-with-local-pickup
+plugins/woocommerce/changelog/fix-9.8-disable-blueprint-feature-ui
 plugins/woocommerce/changelog/product-filters-chips-color
 plugins/woocommerce/changelog/fix-56218-add-to-cart-with-options-button-text
 plugins/woocommerce/changelog/e2e-fix-product-tag-attributes-flakyness
@@ -8031,10 +8058,12 @@ plugins/woocommerce/changelog/fix-52120
 plugins/woocommerce/changelog/56431-add-product-details-available-in-product-context-only
 plugins/woocommerce/changelog/fix-55901
 plugins/woocommerce/changelog/56439-56413-fix-fatal-product
+plugins/woocommerce/changelog/56467-fix-remote-inbox-notif-stored-state
 plugins/woocommerce/changelog/fix-50230
 plugins/woocommerce/changelog/55549-52776-fix-get_attributes-error
 plugins/woocommerce/changelog/fix-reviews-loading-placeholder-alignments
 plugins/woocommerce/changelog/56234-fix-product-gallery-beta-console-errors
+plugins/woocommerce/changelog/56531-update-move-adv-tab-to-the-last
 plugins/woocommerce/changelog/56409-fix-nox-page-background
 plugins/woocommerce/changelog/fix-removable-chips-justification-control-68
 plugins/woocommerce/changelog/fix-54913-only-hydrate-shipping-settings-for-local-pickup
@@ -8165,6 +8194,7 @@ plugins/woo-ai/changelog/55095-dev-rewrite-wireit-deps-update
 plugins/woo-ai/changelog/dev-deps-review-bump-p2
 plugins/woo-ai/changelog/dev-update-wp-env-10.14-and-remove-patch
 plugins/woo-ai/changelog/53865-dev-pnpm-9-15-0
+plugins/woo-ai/changelog/56575-dev-bump-babel-deps
 plugins/woo-ai/changelog/50047-fix-typos
 plugins/woo-ai/changelog/53165-dev-ts-5-7-2
 plugins/woo-ai/changelog/dev-babel-loader-jest-caching
@@ -8180,6 +8210,7 @@ plugins/woo-ai/changelog/47385-dev-update-pnpm9-1
 plugins/woo-ai/changelog/45148-poc-request-reviews
 plugins/woo-ai/changelog/bump-update-wordpress-env-to-9.0.7
 plugins/woo-ai/changelog/dev-solve-wpenv-startup-failures-in-ci-take-2
+plugins/woo-ai/changelog/56506-remove-wp-components-types
 plugins/woo-ai/changelog/dev-tune-up-zip-generation
 plugins/woo-ai/changelog/request-json-response-name-suggestions
 plugins/woo-ai/changelog/54996-chore-update-wireit
@@ -8331,6 +8362,7 @@ plugins/woocommerce-beta-tester/src/product-editor-dev-tools/expression-result.t
 plugins/woocommerce-beta-tester/changelog/55796-add-54370-hide_flat_rate_when_free
 plugins/woocommerce-beta-tester/changelog/.gitkeep
 plugins/woocommerce-beta-tester/changelog/fix-beta-tester-delete-option-error
+plugins/woocommerce-beta-tester/changelog/56506-remove-wp-components-types
 plugins/woocommerce-beta-tester/changelog/fix-beta-tester-live-branch
 plugins/woocommerce-beta-tester/composer.json
 plugins/woocommerce-beta-tester/README.md
@@ -8507,6 +8539,7 @@ packages/js/email-editor/changelog/fix-the-email-editor-doesnt-work-properly-for
 packages/js/email-editor/changelog/improve-woo-email-content-placeholder-block
 packages/js/email-editor/changelog/add-a-basic-integration-of-the-block-email-editor-to-the-woo-core
 packages/js/email-editor/changelog/dev-babel-transforms-cleanup
+packages/js/email-editor/changelog/56506-remove-wp-components-types
 packages/js/email-editor/changelog/update-wordpress-playground-blueprint
 packages/js/email-editor/composer.json
 packages/js/email-editor/README.md
@@ -8528,6 +8561,7 @@ packages/js/currency/changelog/.gitkeep
 packages/js/currency/changelog/52969-fix-currency-external-types
 packages/js/currency/changelog/55095-dev-rewrite-wireit-deps-update
 packages/js/currency/changelog/53865-dev-pnpm-9-15-0
+packages/js/currency/changelog/56575-dev-bump-babel-deps
 packages/js/currency/changelog/53165-dev-ts-5-7-2
 packages/js/currency/changelog/50726-currency-symbol
 packages/js/currency/changelog/53531-dev-react-18-ghidorah
@@ -8570,6 +8604,7 @@ packages/js/ai/changelog/add-image-bkgrnd-removal-hook
 packages/js/ai/changelog/43532-add-cli-to-ci-workflow
 packages/js/ai/changelog/add-remove-background-ui-40440
 packages/js/ai/changelog/43716-fix-production-builds
+packages/js/ai/changelog/56575-dev-bump-babel-deps
 packages/js/ai/changelog/53165-dev-ts-5-7-2
 packages/js/ai/changelog/ci-add-workflow-call-event
 packages/js/ai/changelog/dev-upgrade-ts-5
@@ -8618,6 +8653,7 @@ packages/js/remote-logging/src/types.ts
 packages/js/remote-logging/changelog/.gitkeep
 packages/js/remote-logging/changelog/55095-dev-rewrite-wireit-deps-update
 packages/js/remote-logging/changelog/53865-dev-pnpm-9-15-0
+packages/js/remote-logging/changelog/56575-dev-bump-babel-deps
 packages/js/remote-logging/changelog/53165-dev-ts-5-7-2
 packages/js/remote-logging/changelog/53531-dev-react-18-ghidorah
 packages/js/remote-logging/changelog/dev-ci-lint-monorepo-job-update
@@ -8644,6 +8680,7 @@ packages/js/number/changelog/fix-misspelling-in-parse-number-tests
 packages/js/number/changelog/.gitkeep
 packages/js/number/changelog/55095-dev-rewrite-wireit-deps-update
 packages/js/number/changelog/53865-dev-pnpm-9-15-0
+packages/js/number/changelog/56575-dev-bump-babel-deps
 packages/js/number/changelog/50047-fix-typos
 packages/js/number/changelog/53165-dev-ts-5-7-2
 packages/js/number/changelog/dev-ci-lint-monorepo-job-update
@@ -8748,6 +8785,7 @@ packages/js/onboarding/changelog/53341-trunk
 packages/js/onboarding/changelog/53865-dev-pnpm-9-15-0
 packages/js/onboarding/changelog/update-branding-updates-to-woocommerce
 packages/js/onboarding/changelog/54305-location-mismatch-indication-tooltip
+packages/js/onboarding/changelog/56575-dev-bump-babel-deps
 packages/js/onboarding/changelog/53165-dev-ts-5-7-2
 packages/js/onboarding/changelog/53531-dev-react-18-ghidorah
 packages/js/onboarding/changelog/54023-add-53437-rebrand-logos-payment-providers
@@ -8756,6 +8794,7 @@ packages/js/onboarding/changelog/54723-fix-global-popover-element
 packages/js/onboarding/changelog/enhancements-for-the-pms-popover
 packages/js/onboarding/changelog/dev-55910-deps-consolidation
 packages/js/onboarding/changelog/dev-ci-lint-monorepo-job-update
+packages/js/onboarding/changelog/56506-remove-wp-components-types
 packages/js/onboarding/changelog/dev-ci-jobs-clean-up-cascading-keys-config-option
 packages/js/onboarding/changelog/update-woopayments-methods-logos-component
 packages/js/onboarding/changelog/fix-54227
@@ -8788,6 +8827,7 @@ packages/js/explat/src/index.ts
 packages/js/explat/changelog/.gitkeep
 packages/js/explat/changelog/55095-dev-rewrite-wireit-deps-update
 packages/js/explat/changelog/53865-dev-pnpm-9-15-0
+packages/js/explat/changelog/56575-dev-bump-babel-deps
 packages/js/explat/changelog/53165-dev-ts-5-7-2
 packages/js/explat/changelog/53531-dev-react-18-ghidorah
 packages/js/explat/changelog/dev-ci-lint-monorepo-job-update
@@ -9670,6 +9710,7 @@ packages/js/product-editor/changelog/fix-46615
 packages/js/product-editor/changelog/update-product-editor-retrieves-templates-from-cpt
 packages/js/product-editor/changelog/update-product-editor-increase-attribute-row-according-to-options
 packages/js/product-editor/changelog/add-tracks-unit-tests-improvements-product-editor
+packages/js/product-editor/changelog/56575-dev-bump-babel-deps
 packages/js/product-editor/changelog/fix-product-editor-variations-remove-sizes-and-colors-buttons
 packages/js/product-editor/changelog/enhancement-46491
 packages/js/product-editor/changelog/53165-dev-ts-5-7-2
@@ -9767,6 +9808,7 @@ packages/js/product-editor/changelog/update-abrev-global-unique-id
 packages/js/product-editor/changelog/fix-misspelling-in-getProductStockStatusClass-test
 packages/js/product-editor/changelog/dev-ci-lint-monorepo-job-update
 packages/js/product-editor/changelog/add-product_data_views_list
+packages/js/product-editor/changelog/56506-remove-wp-components-types
 packages/js/product-editor/changelog/dev-ci-jobs-clean-up-cascading-keys-config-option
 packages/js/product-editor/changelog/add-40351-stock
 packages/js/product-editor/changelog/fix-product-editor-length-label
@@ -9832,6 +9874,7 @@ packages/js/dependency-extraction-webpack-plugin/.eslintrc.js
 packages/js/dependency-extraction-webpack-plugin/src/index.js
 packages/js/dependency-extraction-webpack-plugin/changelog/.gitkeep
 packages/js/dependency-extraction-webpack-plugin/changelog/53865-dev-pnpm-9-15-0
+packages/js/dependency-extraction-webpack-plugin/changelog/56575-dev-bump-babel-deps
 packages/js/dependency-extraction-webpack-plugin/changelog/dev-wcdewp-update-deps
 packages/js/dependency-extraction-webpack-plugin/changelog/54996-chore-update-wireit
 packages/js/dependency-extraction-webpack-plugin/composer.json
@@ -10143,6 +10186,7 @@ packages/js/data/changelog/fix-homescreen-layout-ts-errors
 packages/js/data/changelog/53865-dev-pnpm-9-15-0
 packages/js/data/changelog/55440-fix-migrate-notes-store
 packages/js/data/changelog/55771-fix-use-new-store
+packages/js/data/changelog/56575-dev-bump-babel-deps
 packages/js/data/changelog/dev-51470-refactor-payment-providers
 packages/js/data/changelog/fix-migrate-tax-classes-store
 packages/js/data/changelog/53165-dev-ts-5-7-2
@@ -10169,6 +10213,7 @@ packages/js/data/changelog/fix-core-profiler-api-types
 packages/js/data/changelog/53193-dev-53179-adjust-client-to-providers-api
 packages/js/data/changelog/47614-tweak-google-extension-rename
 packages/js/data/changelog/48699-tweak-dont-recommend-wcservices-in-tax-task-with-wcship-or-wctax-active
+packages/js/data/changelog/add-55729-product-review-title-and-rating-blocks
 packages/js/data/changelog/53612-dev-update-cod-copy
 packages/js/data/changelog/56067-39298-woocommercedata-readmes-example-is-invalid
 packages/js/data/changelog/fix-migrate-review-data
@@ -10240,6 +10285,7 @@ packages/js/admin-layout/changelog/53531-dev-react-18-ghidorah
 packages/js/admin-layout/changelog/47156-dev-fix-build-error-build-style
 packages/js/admin-layout/changelog/dev-55910-deps-consolidation
 packages/js/admin-layout/changelog/dev-ci-lint-monorepo-job-update
+packages/js/admin-layout/changelog/56506-remove-wp-components-types
 packages/js/admin-layout/changelog/dev-build-profiling-tweaks-take-1
 packages/js/admin-layout/changelog/dev-updates-to-packages-for-dependencies
 packages/js/admin-layout/changelog/54996-chore-update-wireit
@@ -10272,6 +10318,7 @@ packages/js/internal-js-tests/changelog/53865-dev-pnpm-9-15-0
 packages/js/internal-js-tests/changelog/add-bump-stats-error
 packages/js/internal-js-tests/changelog/43532-add-cli-to-ci-workflow
 packages/js/internal-js-tests/changelog/add-tracks-unit-tests-improvements-product-editor
+packages/js/internal-js-tests/changelog/56575-dev-bump-babel-deps
 packages/js/internal-js-tests/changelog/53165-dev-ts-5-7-2
 packages/js/internal-js-tests/changelog/dev-babel-loader-jest-caching
 packages/js/internal-js-tests/changelog/53531-dev-react-18-ghidorah
@@ -10316,6 +10363,7 @@ packages/js/notices/changelog/55095-dev-rewrite-wireit-deps-update
 packages/js/notices/changelog/44566-fix-44565-fix-gutenberg-links-pointing-to-the-wrong-branch-in-the-docs
 packages/js/notices/changelog/53865-dev-pnpm-9-15-0
 packages/js/notices/changelog/43532-add-cli-to-ci-workflow
+packages/js/notices/changelog/56575-dev-bump-babel-deps
 packages/js/notices/changelog/53165-dev-ts-5-7-2
 packages/js/notices/changelog/53531-dev-react-18-ghidorah
 packages/js/notices/changelog/42860-update-pnpm
@@ -10410,6 +10458,7 @@ packages/js/date/src/index.ts
 packages/js/date/changelog/.gitkeep
 packages/js/date/changelog/55095-dev-rewrite-wireit-deps-update
 packages/js/date/changelog/53865-dev-pnpm-9-15-0
+packages/js/date/changelog/56575-dev-bump-babel-deps
 packages/js/date/changelog/50047-fix-typos
 packages/js/date/changelog/53165-dev-ts-5-7-2
 packages/js/date/changelog/53531-dev-react-18-ghidorah
@@ -10527,6 +10576,7 @@ packages/js/settings-editor/changelog/53231-fix-settings-global-styles
 packages/js/settings-editor/changelog/54027-fix-settings-editor-types
 packages/js/settings-editor/changelog/update-settings-edits
 packages/js/settings-editor/changelog/fix-settings-custom-view
+packages/js/settings-editor/changelog/56575-dev-bump-babel-deps
 packages/js/settings-editor/changelog/53165-dev-ts-5-7-2
 packages/js/settings-editor/changelog/fix-get_custom_view-object-verbose
 packages/js/settings-editor/changelog/tweak-settings-route
@@ -10638,6 +10688,7 @@ packages/js/navigation/src/hooks/use-confirm-unsaved-changes.ts
 packages/js/navigation/changelog/.gitkeep
 packages/js/navigation/changelog/55095-dev-rewrite-wireit-deps-update
 packages/js/navigation/changelog/53865-dev-pnpm-9-15-0
+packages/js/navigation/changelog/56575-dev-bump-babel-deps
 packages/js/navigation/changelog/53165-dev-ts-5-7-2
 packages/js/navigation/changelog/add-navigation-deprecation
 packages/js/navigation/changelog/53531-dev-react-18-ghidorah
@@ -10708,6 +10759,7 @@ packages/js/integrate-plugin/changelog/43595-update-wireit-0.14.3
 packages/js/integrate-plugin/changelog/55095-dev-rewrite-wireit-deps-update
 packages/js/integrate-plugin/changelog/add-40311_initial_migration_script
 packages/js/integrate-plugin/changelog/43532-add-cli-to-ci-workflow
+packages/js/integrate-plugin/changelog/56575-dev-bump-babel-deps
 packages/js/integrate-plugin/changelog/53165-dev-ts-5-7-2
 packages/js/integrate-plugin/changelog/ci-add-workflow-call-event
 packages/js/integrate-plugin/changelog/53531-dev-react-18-ghidorah
@@ -10762,6 +10814,7 @@ packages/js/tracks/changelog/.gitkeep
 packages/js/tracks/changelog/55095-dev-rewrite-wireit-deps-update
 packages/js/tracks/changelog/53865-dev-pnpm-9-15-0
 packages/js/tracks/changelog/add-bump-stats-error
+packages/js/tracks/changelog/56575-dev-bump-babel-deps
 packages/js/tracks/changelog/53165-dev-ts-5-7-2
 packages/js/tracks/changelog/dev-ci-lint-monorepo-job-update
 packages/js/tracks/changelog/50993-fix-some-comment-typos
@@ -10790,6 +10843,7 @@ packages/js/csv-export/src/index.ts
 packages/js/csv-export/changelog/.gitkeep
 packages/js/csv-export/changelog/55095-dev-rewrite-wireit-deps-update
 packages/js/csv-export/changelog/53865-dev-pnpm-9-15-0
+packages/js/csv-export/changelog/56575-dev-bump-babel-deps
 packages/js/csv-export/changelog/dev-ci-jobs-clean-up-cascading-keys-config-option
 packages/js/csv-export/changelog/54996-chore-update-wireit
 packages/js/csv-export/composer.json
@@ -10844,6 +10898,7 @@ packages/js/experimental/changelog/55095-dev-rewrite-wireit-deps-update
 packages/js/experimental/changelog/52961-update-dompurify
 packages/js/experimental/changelog/fix-tasklist-ts-errors
 packages/js/experimental/changelog/53865-dev-pnpm-9-15-0
+packages/js/experimental/changelog/56575-dev-bump-babel-deps
 packages/js/experimental/changelog/54526-54488-admin-note-action-button-of-type-link-no-longer-works
 packages/js/experimental/changelog/53165-dev-ts-5-7-2
 packages/js/experimental/changelog/update-remove-banner-layout-from-inbox-note
@@ -10851,6 +10906,7 @@ packages/js/experimental/changelog/54160-54158-fix-typescript-errors-from-packag
 packages/js/experimental/changelog/53531-dev-react-18-ghidorah
 packages/js/experimental/changelog/dev-babel-transforms-cleanup
 packages/js/experimental/changelog/dev-ci-lint-monorepo-job-update
+packages/js/experimental/changelog/56506-remove-wp-components-types
 packages/js/experimental/changelog/dev-ci-jobs-clean-up-cascading-keys-config-option
 packages/js/experimental/changelog/upgrade-storybook_and_add_pages_workflow
 packages/js/experimental/changelog/dev-build-profiling-tweaks-take-1
@@ -10876,6 +10932,7 @@ packages/js/e2e-utils-playwright/src/order.js
 packages/js/e2e-utils-playwright/src/cart.js
 packages/js/e2e-utils-playwright/src/checkout.js
 packages/js/e2e-utils-playwright/changelog/.gitkeep
+packages/js/e2e-utils-playwright/changelog/56575-dev-bump-babel-deps
 packages/js/e2e-utils-playwright/changelog/dev-55910-deps-consolidation
 packages/js/e2e-utils-playwright/composer.json
 packages/js/e2e-utils-playwright/CHANGELOG.md
@@ -10901,6 +10958,7 @@ packages/js/block-templates/src/style.scss
 packages/js/block-templates/changelog/.gitkeep
 packages/js/block-templates/changelog/55095-dev-rewrite-wireit-deps-update
 packages/js/block-templates/changelog/add-backend-template-match
+packages/js/block-templates/changelog/56575-dev-bump-babel-deps
 packages/js/block-templates/changelog/53165-dev-ts-5-7-2
 packages/js/block-templates/changelog/ci-add-workflow-call-event
 packages/js/block-templates/changelog/56341-update-register-woo-block-type-util-react-18
@@ -11465,6 +11523,7 @@ packages/js/components/changelog/fix-49155
 packages/js/components/changelog/update-escape-select-control
 packages/js/components/changelog/53865-dev-pnpm-9-15-0
 packages/js/components/changelog/remove-scrollbar
+packages/js/components/changelog/56575-dev-bump-babel-deps
 packages/js/components/changelog/53165-dev-ts-5-7-2
 packages/js/components/changelog/ci-add-workflow-call-event
 packages/js/components/changelog/fix-core-profiler-ts-errors
@@ -11497,6 +11556,7 @@ packages/js/components/changelog/fix-52827-wc-admin-product-image-aspect-ratio
 packages/js/components/changelog/dev-ci-lint-monorepo-job-update
 packages/js/components/changelog/53648-update-blueprint-settings
 packages/js/components/changelog/36052-dev-move-report-error
+packages/js/components/changelog/56506-remove-wp-components-types
 packages/js/components/changelog/dev-ci-jobs-clean-up-cascading-keys-config-option
 packages/js/components/changelog/55426-fix-migrate-plugin-store
 packages/js/components/changelog/dev-monorepo-caching-deps-per-target-package
@@ -11627,6 +11687,7 @@ packages/js/admin-e2e-tests/changelog/dev-enable-cot-local-environment
 packages/js/admin-e2e-tests/changelog/53865-dev-pnpm-9-15-0
 packages/js/admin-e2e-tests/changelog/fix-changelogger-phpcs
 packages/js/admin-e2e-tests/changelog/43532-add-cli-to-ci-workflow
+packages/js/admin-e2e-tests/changelog/56575-dev-bump-babel-deps
 packages/js/admin-e2e-tests/changelog/53165-dev-ts-5-7-2
 packages/js/admin-e2e-tests/changelog/dev-fix-pnpm-version-engines
 packages/js/admin-e2e-tests/changelog/dev-upgrade-ts-5
@@ -11837,6 +11898,7 @@ packages/js/eslint-plugin/package.json
 packages/js/eslint-plugin/.eslintrc.js
 packages/js/eslint-plugin/changelog/.gitkeep
 packages/js/eslint-plugin/changelog/53865-dev-pnpm-9-15-0
+packages/js/eslint-plugin/changelog/56575-dev-bump-babel-deps
 packages/js/eslint-plugin/changelog/53165-dev-ts-5-7-2
 packages/js/eslint-plugin/changelog/fix-typos-in-packages-js-md-files
 packages/js/eslint-plugin/changelog/dev-ci-lint-monorepo-job-update
@@ -11897,6 +11959,7 @@ packages/js/customer-effort-score/changelog/.gitkeep
 packages/js/customer-effort-score/changelog/55095-dev-rewrite-wireit-deps-update
 packages/js/customer-effort-score/changelog/55626-email-improvements-feedback-prompt
 packages/js/customer-effort-score/changelog/53865-dev-pnpm-9-15-0
+packages/js/customer-effort-score/changelog/56575-dev-bump-babel-deps
 packages/js/customer-effort-score/changelog/52499-fix-52369-ces-modal-style-issue-with-wp-67
 packages/js/customer-effort-score/changelog/53165-dev-ts-5-7-2
 packages/js/customer-effort-score/changelog/53531-dev-react-18-ghidorah
@@ -11905,6 +11968,7 @@ packages/js/customer-effort-score/changelog/52556-fix-52515-ces-feedback-require
 packages/js/customer-effort-score/changelog/dev-55910-deps-consolidation
 packages/js/customer-effort-score/changelog/improve-ces-allow-tracking-option
 packages/js/customer-effort-score/changelog/dev-ci-lint-monorepo-job-update
+packages/js/customer-effort-score/changelog/56506-remove-wp-components-types
 packages/js/customer-effort-score/changelog/dev-ci-jobs-clean-up-cascading-keys-config-option
 packages/js/customer-effort-score/changelog/52938-fix-52858-alignment-bug-in-product-editor-20-feedback-form
 packages/js/customer-effort-score/changelog/52815-dev-lock-dependencies
@@ -11936,6 +12000,7 @@ packages/js/expression-evaluation/changelog/43595-update-wireit-0.14.3
 packages/js/expression-evaluation/changelog/55095-dev-rewrite-wireit-deps-update
 packages/js/expression-evaluation/changelog/53865-dev-pnpm-9-15-0
 packages/js/expression-evaluation/changelog/43532-add-cli-to-ci-workflow
+packages/js/expression-evaluation/changelog/56575-dev-bump-babel-deps
 packages/js/expression-evaluation/changelog/50047-fix-typos
 packages/js/expression-evaluation/changelog/53165-dev-ts-5-7-2
 packages/js/expression-evaluation/changelog/53531-dev-react-18-ghidorah
