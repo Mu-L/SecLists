@@ -445,7 +445,6 @@ WebObjects/MZStoreElements.woa
 [_0-9a-zA-Z]+/photo
 [_0-9a-zA-Z]+/status/[0-9]+/likes
 [_0-9a-zA-Z]+/status/[0-9]+/retweets
-^[A-Za-z0-9_]{1,15}$
 _
 _/aihub_pod
 _/ain/_/js
@@ -1504,9 +1503,9 @@ hp/video
 hpc/*/supported-applications.aspx?
 hpm
 hpmob
-http://maps.app.goo.gl/robots.txt
-http://ncbi.nlm.nih.gov/robots.txt
-http://twitter.com/robots.txt
+http://calendar.google.com/robots.txt
+http://linkedin.com/robots.txt
+http://web.archive.org/robots.txt
 hub?category=
 hz/contact-us/ajax/initiate-trusted-contact
 hz/help/contact/*/message/$
@@ -1514,7 +1513,6 @@ hz/leaderboard/hall-of-fame
 hz/leaderboard/top-reviewers
 i/api
 i/u
-i/user/[0-9]+
 ia
 icons
 id-id.www.cloudflare.com
@@ -3146,7 +3144,7 @@ wiki/Wikipedia_Diskussion:Checkuser
 wiki/Wikipedia_Diskussion:Spam-Blacklist-Log
 wiki/Wikipedia_talk%3AAbuse_reports
 wiki/Wikipedia_talk%3AAbuse_response
-wiki/Wikipedia_talk%3AAdministrator_electionshttp://apps.apple.com/robots.txt
+wiki/Wikipedia_talk%3AAdministrator_electionshttp://podcasts.apple.com/robots.txt
 wiki/Wikipedia_talk%3AAdministrator_recall
 wiki/Wikipedia_talk%3AAdministrator_review
 wiki/Wikipedia_talk%3AAdministrators%27_noticeboard
