@@ -3003,6 +3003,7 @@ core/lib/Drupal/Core/Config/ManagedStorage.php
 core/lib/Drupal/Core/Config/StorageCopyTrait.php
 core/lib/Drupal/Core/Config/StorageException.php
 core/lib/Drupal/Core/Config/StorageComparerInterface.php
+core/lib/Drupal/Core/Config/Development/LenientConfigSchemaChecker.php
 core/lib/Drupal/Core/Config/Development/ConfigSchemaChecker.php
 core/lib/Drupal/Core/Config/ConfigException.php
 core/lib/Drupal/Core/Config/DefaultConfigMode.php
@@ -4228,6 +4229,7 @@ core/lib/Drupal/Core/StreamWrapper/PublicStream.php
 core/lib/Drupal/Core/Validation/Attribute/Constraint.php
 core/lib/Drupal/Core/Validation/BasicRecursiveValidatorFactory.php
 core/lib/Drupal/Core/Validation/Plugin/Validation/Constraint/CountryCodeConstraint.php
+core/lib/Drupal/Core/Validation/Plugin/Validation/Constraint/AtLeastOneOfConstraint.php
 core/lib/Drupal/Core/Validation/Plugin/Validation/Constraint/UriHostConstraintValidator.php
 core/lib/Drupal/Core/Validation/Plugin/Validation/Constraint/IsNullConstraintValidator.php
 core/lib/Drupal/Core/Validation/Plugin/Validation/Constraint/RangeConstraintValidator.php
@@ -4254,6 +4256,7 @@ core/lib/Drupal/Core/Validation/Plugin/Validation/Constraint/ValidKeysConstraint
 core/lib/Drupal/Core/Validation/Plugin/Validation/Constraint/ComplexDataConstraint.php
 core/lib/Drupal/Core/Validation/Plugin/Validation/Constraint/NotNullConstraint.php
 core/lib/Drupal/Core/Validation/Plugin/Validation/Constraint/ComplexDataConstraintValidator.php
+core/lib/Drupal/Core/Validation/Plugin/Validation/Constraint/AtLeastOneOfConstraintValidator.php
 core/lib/Drupal/Core/Validation/Plugin/Validation/Constraint/RangeConstraint.php
 core/lib/Drupal/Core/Validation/Plugin/Validation/Constraint/EmailConstraint.php
 core/lib/Drupal/Core/Validation/Plugin/Validation/Constraint/RegexConstraint.php
@@ -6004,6 +6007,7 @@ core/tests/Drupal/KernelTests/Core/Validation/UniqueFieldConstraintTest.php
 core/tests/Drupal/KernelTests/Core/Validation/ConstraintFactoryTest.php
 core/tests/Drupal/KernelTests/Core/Validation/UuidValidatorTest.php
 core/tests/Drupal/KernelTests/Core/Validation/UniqueValuesConstraintValidatorTest.php
+core/tests/Drupal/KernelTests/Core/Validation/AtLeastOneOfConstraintValidatorTest.php
 core/tests/Drupal/KernelTests/Core/Render/Element/ActionsTest.php
 core/tests/Drupal/KernelTests/Core/Render/Element/RenderElementTypesTest.php
 core/tests/Drupal/KernelTests/Core/Render/Element/TableSortExtenderTest.php
@@ -7682,6 +7686,7 @@ core/modules/migrate_drupal/tests/src/Kernel/Plugin/migrate/source/d6/VariableTr
 core/modules/migrate_drupal/tests/src/Kernel/Plugin/migrate/source/VariableMultiRowTest.php
 core/modules/migrate_drupal/tests/src/Kernel/Plugin/migrate/source/VariableTest.php
 core/modules/migrate_drupal/tests/src/Kernel/Plugin/migrate/DestinationCategoryTest.php
+core/modules/migrate_drupal/tests/src/Kernel/Plugin/MigrationProvidersExistTest.php
 core/modules/migrate_drupal/tests/src/Kernel/dependencies/MigrateDependenciesTest.php
 core/modules/migrate_drupal/tests/src/Kernel/d6/ValidateMigrationStateTest.php
 core/modules/migrate_drupal/tests/src/Kernel/d6/MigrationProcessTest.php
@@ -8896,6 +8901,10 @@ core/modules/block_content/tests/modules/block_content_test_views/test_views/vie
 core/modules/block_content/tests/modules/block_content_test_views/test_views/views.view.test_block_content_revision_revision_id.yml
 core/modules/block_content/tests/modules/block_content_test_views/test_views/views.view.test_block_content_redirect_destination.yml
 core/modules/block_content/tests/modules/block_content_test_views/test_views/views.view.test_block_content_view.yml
+core/modules/block_content/tests/modules/block_content_theme_suggestions_test/templates/block--block-content--view-type--basic--full.html.twig
+core/modules/block_content/tests/modules/block_content_theme_suggestions_test/block_content_theme_suggestions_test.info.yml
+core/modules/block_content/tests/modules/block_content_theme_suggestions_test/block_content_theme_suggestions_test.module
+core/modules/block_content/tests/modules/block_content_theme_suggestions_test/src/Hook/BlockContentThemeSuggestionsTestHooks.php
 core/modules/block_content/tests/modules/block_content_test/block_content_test.info.yml
 core/modules/block_content/tests/modules/block_content_test/src/Hook/BlockContentTestHooks.php
 core/modules/block_content/tests/modules/block_content_test/src/Plugin/EntityReferenceSelection/TestSelection.php
@@ -8948,6 +8957,7 @@ core/modules/block_content/tests/src/Functional/Rest/BlockContentTypeXmlBasicAut
 core/modules/block_content/tests/src/Functional/Rest/BlockContentJsonCookieTest.php
 core/modules/block_content/tests/src/Functional/BlockContentListTest.php
 core/modules/block_content/tests/src/Functional/BlockContentSaveTest.php
+core/modules/block_content/tests/src/Functional/BlockContentThemeSuggestionsTest.php
 core/modules/block_content/tests/src/Functional/BlockContentContextualLinksTest.php
 core/modules/block_content/tests/src/Functional/BlockContentPageViewTest.php
 core/modules/block_content/tests/src/Functional/BlockContentRevisionDeleteTest.php
@@ -10392,6 +10402,10 @@ core/modules/image/tests/modules/image_module_test/src/Plugin/Field/FieldWidget/
 core/modules/image/tests/modules/image_module_test/src/Plugin/Field/FieldType/DummyAjaxItem.php
 core/modules/image/tests/modules/image_module_test/config/schema/image_module_test.schema.yml
 core/modules/image/tests/modules/image_module_test/image_module_test.info.yml
+core/modules/image/tests/modules/image_field_property_constraint_validation/src/Hook/ImagePropertyConstraintValidationHooks.php
+core/modules/image/tests/modules/image_field_property_constraint_validation/src/Plugin/Validation/Constraint/AltTextContainsLlamasConstraintValidator.php
+core/modules/image/tests/modules/image_field_property_constraint_validation/src/Plugin/Validation/Constraint/AltTextContainsLlamasConstraint.php
+core/modules/image/tests/modules/image_field_property_constraint_validation/image_field_property_constraint_validation.info.yml
 core/modules/image/tests/modules/image_access_test_hidden/image_access_test_hidden.info.yml
 core/modules/image/tests/modules/image_access_test_hidden/src/Hook/ImageAccessTestHiddenHooks.php
 core/modules/image/tests/modules/image_test_views/test_views/views.view.test_image_user_image_data.yml
@@ -10435,6 +10449,7 @@ core/modules/image/tests/src/Functional/Rest/ImageStyleJsonBasicAuthTest.php
 core/modules/image/tests/src/Functional/ImageEffect/ConvertTest.php
 core/modules/image/tests/src/Functional/ImageFieldDisplayTest.php
 core/modules/image/tests/src/Functional/ImageFieldValidateTest.php
+core/modules/image/tests/src/Functional/ImageFieldWidgetValidationTest.php
 core/modules/image/tests/src/Functional/ImageFieldDefaultImagesTest.php
 core/modules/image/tests/src/Functional/ImageFieldWidgetTest.php
 core/modules/image/tests/src/Functional/ImageStyleDownloadAccessControlTest.php
@@ -11143,7 +11158,6 @@ core/modules/migrate/tests/src/Kernel/Plugin/source/MigrateSqlSourceCountCacheTe
 core/modules/migrate/tests/src/Kernel/Plugin/source/MigrateSourceDiscoveryTest.php
 core/modules/migrate/tests/src/Kernel/Plugin/id_map/SqlTest.php
 core/modules/migrate/tests/src/Kernel/Plugin/EntityRevisionTest.php
-core/modules/migrate/tests/src/Kernel/Plugin/MigrationProvidersExistTest.php
 core/modules/migrate/tests/src/Kernel/Plugin/MigrationPluginConfigurationTest.php
 core/modules/migrate/tests/src/Kernel/Plugin/MigrationTest.php
 core/modules/migrate/tests/src/Kernel/Plugin/MigrationPluginListTest.php
@@ -11188,6 +11202,7 @@ core/modules/migrate/tests/src/Unit/Plugin/migrate/destination/CheckRequirements
 core/modules/migrate/tests/src/Unit/Plugin/migrate/destination/EntityContentBaseTest.php
 core/modules/migrate/tests/src/Unit/Plugin/migrate/destination/EntityRevisionTest.php
 core/modules/migrate/tests/src/Unit/Plugin/migrate/destination/EntityTestBase.php
+core/modules/migrate/tests/src/Unit/Plugin/NoSourcePluginDecoratorTest.php
 core/modules/migrate/tests/src/Unit/RowTest.php
 core/modules/migrate/tests/src/Unit/MigrateExecutableTest.php
 core/modules/migrate/tests/src/Unit/destination/PerComponentEntityFormDisplayTest.php
@@ -17113,6 +17128,7 @@ core/modules/workspaces/tests/modules/workspaces_test/src/Hook/WorkspacesTestHoo
 core/modules/workspaces/tests/modules/workspaces_test/src/Entity/EntityTestMulRevPubStringId.php
 core/modules/workspaces/tests/modules/workspaces_test/src/EntityTestRevPubWorkspaceHandler.php
 core/modules/workspaces/tests/src/FunctionalJavascript/WorkspacesLayoutBuilderIntegrationTest.php
+core/modules/workspaces/tests/src/FunctionalJavascript/WorkspacesMediaLibraryIntegrationTest.php
 core/modules/workspaces/tests/src/Kernel/WorkspaceInformationTest.php
 core/modules/workspaces/tests/src/Kernel/WorkspacesFileItemTest.php
 core/modules/workspaces/tests/src/Kernel/EntityReferenceSupportedNewEntitiesConstraintValidatorTest.php
@@ -17245,7 +17261,11 @@ core/modules/migrate_drupal_ui/tests/modules/migration_provider_test/migrations/
 core/modules/migrate_drupal_ui/tests/modules/migrate_drupal_message_test/migrate_drupal_message_test.info.yml
 core/modules/migrate_drupal_ui/tests/modules/migrate_drupal_message_test/src/Plugin/migrate/source/MenuTest.php
 core/modules/migrate_drupal_ui/tests/modules/migrate_drupal_message_test/migrations/d7_menu_test.yml
+core/modules/migrate_drupal_ui/tests/modules/migration_source_module_test/migration_source_module_test.info.yml
+core/modules/migrate_drupal_ui/tests/modules/migration_source_module_test/src/Plugin/migrate/source/NoSourceModule.php
+core/modules/migrate_drupal_ui/tests/modules/migration_source_module_test/migrations/migrate_source_module_test.yml
 core/modules/migrate_drupal_ui/tests/src/FunctionalJavascript/SettingsTest.php
+core/modules/migrate_drupal_ui/tests/src/Kernel/SourceModuleTest.php
 core/modules/migrate_drupal_ui/tests/src/Kernel/MigrationLabelExistTest.php
 core/modules/migrate_drupal_ui/tests/src/Functional/MigrateUpgradeTestBase.php
 core/modules/migrate_drupal_ui/tests/src/Functional/d7/IdConflictTest.php
