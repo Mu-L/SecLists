@@ -6723,6 +6723,8 @@ app/frontend/apps/desktop/components/CommonProgressBar/__tests__/CommonProgressB
 app/frontend/apps/desktop/components/CommonProgressBar/CommonProgressBar.vue
 app/frontend/apps/desktop/components/CommonShowMoreButton/__tests__/CommonShowMoreButton.spec.ts
 app/frontend/apps/desktop/components/CommonShowMoreButton/CommonShowMoreButton.vue
+app/frontend/apps/desktop/components/CommonPopover/__test__/CommonPopoverWithTrigger.spec.ts
+app/frontend/apps/desktop/components/CommonPopover/CommonPopoverWithTrigger.vue
 app/frontend/apps/desktop/components/CommonOverlayContainer/CommonOverlayContainer.vue
 app/frontend/apps/desktop/components/CommonOverlayContainer/__tests__/CommonOverlayContainer.spec.ts
 app/frontend/apps/desktop/components/CommonLoader/CommonLoader.vue
@@ -6986,7 +6988,13 @@ app/frontend/apps/desktop/components/SplitButton/SplitButton.vue
 app/frontend/apps/desktop/components/CommonSkeleton/CommonSkeleton.vue
 app/frontend/apps/desktop/components/CommonSkeleton/__test__/CommonSkeleton.spec.ts
 app/frontend/apps/desktop/components/User/__tests__/UserListTable.spec.ts
+app/frontend/apps/desktop/components/User/__tests__/UserInfo.spec.ts
+app/frontend/apps/desktop/components/User/__tests__/UserPopoverWithTrigger.spec.ts
+app/frontend/apps/desktop/components/User/UserPopoverWithTrigger.vue
 app/frontend/apps/desktop/components/User/UserListTable.vue
+app/frontend/apps/desktop/components/User/UserInfo.vue
+app/frontend/apps/desktop/components/User/UserPopoverWithTrigger/UserPopover.vue
+app/frontend/apps/desktop/components/User/UserPopoverWithTrigger/skeleton/UserPopoverSkeleton.vue
 app/frontend/apps/desktop/components/UserTaskbarTabs/Search/Search.vue
 app/frontend/apps/desktop/components/UserTaskbarTabs/__tests__/UserTaskbarTabs.spec.ts
 app/frontend/apps/desktop/components/UserTaskbarTabs/UserTaskbarTabRemove.vue
@@ -10260,6 +10268,7 @@ app/models/core_workflow/result/set_optional.rb
 app/models/core_workflow/result/show.rb
 app/models/core_workflow/search.rb
 app/models/core_workflow/condition/starts_with_one_of.rb
+app/models/core_workflow/condition/is_greater_than_or_equal_to.rb
 app/models/core_workflow/condition/is_modified_to.rb
 app/models/core_workflow/condition/ends_with_one_of.rb
 app/models/core_workflow/condition/within_last_relative.rb
@@ -10273,12 +10282,14 @@ app/models/core_workflow/condition/matches_regex.rb
 app/models/core_workflow/condition/starts_with.rb
 app/models/core_workflow/condition/till_relative.rb
 app/models/core_workflow/condition/contains.rb
+app/models/core_workflow/condition/is_less_than.rb
 app/models/core_workflow/condition/from_relative.rb
 app/models/core_workflow/condition/is_modified.rb
 app/models/core_workflow/condition/not_set.rb
 app/models/core_workflow/condition/contains_not.rb
 app/models/core_workflow/condition/just_changed.rb
 app/models/core_workflow/condition/before_absolute.rb
+app/models/core_workflow/condition/is_greater_than.rb
 app/models/core_workflow/condition/today.rb
 app/models/core_workflow/condition/does_not_match_regex.rb
 app/models/core_workflow/condition/contains_one_not.rb
@@ -10286,8 +10297,10 @@ app/models/core_workflow/condition/backend.rb
 app/models/core_workflow/condition/match_one_module.rb
 app/models/core_workflow/condition/match_all_modules.rb
 app/models/core_workflow/condition/contains_all_not.rb
+app/models/core_workflow/condition/is_less_than_or_equal_to.rb
 app/models/core_workflow/condition/after_absolute.rb
 app/models/core_workflow/condition/is_set.rb
+app/models/core_workflow/condition/base_operator.rb
 app/models/core_workflow/condition/after_relative.rb
 app/models/core_workflow/condition/match_no_modules.rb
 app/models/core_workflow/condition/ends_with.rb
