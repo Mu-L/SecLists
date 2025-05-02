@@ -2597,6 +2597,9 @@ core/assets/vendor/tabbable/index.umd.min.js
 core/assets/vendor/js-cookie/js.cookie.min.js
 core/assets/vendor/underscore/underscore-min.js
 core/assets/vendor/underscore/underscore-min.js.map
+core/assets/vendor/htmx/debug.js
+core/assets/vendor/htmx/htmx.js
+core/assets/vendor/htmx/htmx.min.js
 core/assets/vendor/once/once.min.js.map
 core/assets/vendor/once/once.min.js
 core/assets/vendor/once/once.js
@@ -3080,7 +3083,8 @@ core/lib/Drupal/Core/Security/RequestSanitizer.php
 core/lib/Drupal/Core/GeneratedNoLink.php
 core/lib/Drupal/Core/CronInterface.php
 core/lib/Drupal/Core/README.txt
-core/lib/Drupal/Core/Hook/Attribute/StopProceduralHookScan.php
+core/lib/Drupal/Core/Hook/Attribute/ProceduralHookScanStop.php
+core/lib/Drupal/Core/Hook/Attribute/Preprocess.php
 core/lib/Drupal/Core/Hook/Attribute/HookAttributeInterface.php
 core/lib/Drupal/Core/Hook/Attribute/LegacyHook.php
 core/lib/Drupal/Core/Hook/Attribute/LegacyModuleImplementsAlter.php
@@ -5800,6 +5804,7 @@ core/tests/Drupal/KernelTests/Core/Action/PublishActionTest.php
 core/tests/Drupal/KernelTests/Core/Action/EmailActionTest.php
 core/tests/Drupal/KernelTests/Core/DefaultContent/AdminAccountSwitcherTest.php
 core/tests/Drupal/KernelTests/Core/Datetime/Element/TimezoneTest.php
+core/tests/Drupal/KernelTests/Core/Datetime/Element/DatetimeFormElementTest.php
 core/tests/Drupal/KernelTests/Core/Datetime/DatetimeElementFormTest.php
 core/tests/Drupal/KernelTests/Core/Datetime/DatelistElementFormTest.php
 core/tests/Drupal/KernelTests/Core/Datetime/TimestampSchemaTest.php
@@ -6293,6 +6298,7 @@ core/tests/Drupal/TestTools/Extension/HtmlLogging/TestRunnerStartedSubscriber.ph
 core/tests/Drupal/TestTools/Extension/RequiresComposerTrait.php
 core/tests/Drupal/TestTools/Extension/Dump/DebugDump.php
 core/tests/Drupal/TestTools/Extension/Dump/TestRunnerFinishedSubscriber.php
+core/tests/Drupal/TestTools/PhpUnitTestCaseJUnitResult.php
 core/tests/Drupal/FunctionalJavascriptTests/EntityReference/EntityReferenceAutocompleteWidgetTest.php
 core/tests/Drupal/FunctionalJavascriptTests/WebDriverWebAssert.php
 core/tests/Drupal/FunctionalJavascriptTests/JavascriptGetDrupalSettingsTest.php
@@ -6613,7 +6619,6 @@ core/tests/Drupal/Tests/Core/Test/BrowserTestBaseTest.php
 core/tests/Drupal/Tests/Core/Test/PhpUnitBridgeIsolatedTest.php
 core/tests/Drupal/Tests/Core/Test/PhpUnitAutoloaderTest.php
 core/tests/Drupal/Tests/Core/Test/TestSetupTraitTest.php
-core/tests/Drupal/Tests/Core/Test/fixtures/phpunit_error.xml
 core/tests/Drupal/Tests/Core/Test/TestSuiteBaseTest.php
 core/tests/Drupal/Tests/Core/Test/XdebugRequestTraitTest.php
 core/tests/Drupal/Tests/Core/Test/RunTests/TestFileParserTest.php
@@ -7139,6 +7144,8 @@ core/tests/Drupal/Tests/UiHelperTrait.php
 core/tests/Drupal/Tests/PerformanceData.php
 core/tests/Drupal/Tests/RandomGeneratorTrait.php
 core/tests/Drupal/Tests/EntityTrait.php
+core/tests/fixtures/phpunit_error.xml
+core/tests/fixtures/phpunit_skipped.xml
 core/tests/fixtures/test_missing_base_theme/test_missing_base_theme.info.yml
 core/tests/fixtures/test_missing_base_theme/test_missing_base_theme.theme
 core/tests/fixtures/test-error.log
@@ -10007,8 +10014,8 @@ core/modules/comment/tests/modules/comment_test/comment_test.routing.yml
 core/modules/comment/tests/modules/comment_test/src/Hook/CommentTestHooks.php
 core/modules/comment/tests/modules/comment_test/src/Controller/CommentTestController.php
 core/modules/comment/tests/modules/comment_test/comment_test.info.yml
-core/modules/comment/tests/modules/comment_empty_title_test/comment_empty_title_test.module
 core/modules/comment/tests/modules/comment_empty_title_test/comment_empty_title_test.info.yml
+core/modules/comment/tests/modules/comment_empty_title_test/src/Hook/CommentEmptyTitleTestThemeHooks.php
 core/modules/comment/tests/src/Kernel/CommentBaseFieldTest.php
 core/modules/comment/tests/src/Kernel/CommentStringIdEntitiesTest.php
 core/modules/comment/tests/src/Kernel/CommentUninstallTest.php
@@ -10128,6 +10135,7 @@ core/modules/comment/src/CommentStorageInterface.php
 core/modules/comment/src/Hook/CommentTokensHooks.php
 core/modules/comment/src/Hook/CommentViewsHooks.php
 core/modules/comment/src/Hook/CommentHooks.php
+core/modules/comment/src/Hook/CommentThemeHooks.php
 core/modules/comment/src/CommentStatisticsInterface.php
 core/modules/comment/src/CommentAccessControlHandler.php
 core/modules/comment/src/CommentStorageSchema.php
@@ -10311,6 +10319,7 @@ core/modules/locale/src/PoDatabaseWriter.php
 core/modules/locale/src/StringStorageInterface.php
 core/modules/locale/src/LocaleEvent.php
 core/modules/locale/src/LocaleLookup.php
+core/modules/locale/src/Hook/LocaleThemeHooks.php
 core/modules/locale/src/Hook/LocaleHooks.php
 core/modules/locale/src/Form/ImportForm.php
 core/modules/locale/src/Form/TranslateFormBase.php
@@ -10946,6 +10955,7 @@ core/modules/node/src/NodeTranslationHandler.php
 core/modules/node/src/Access/NodePreviewAccessCheck.php
 core/modules/node/src/Cache/NodeAccessGrantsCacheContext.php
 core/modules/node/src/NodeStorageSchema.php
+core/modules/node/src/Hook/NodeThemeHooks.php
 core/modules/node/src/Hook/NodeViewsExecutionHooks.php
 core/modules/node/src/Hook/NodeHooks1.php
 core/modules/node/src/Hook/NodeTokensHooks.php
@@ -12036,6 +12046,7 @@ core/modules/contextual/js/views/KeyboardView.js
 core/modules/contextual/js/models/StateModel.js
 core/modules/contextual/js/contextual.toolbar.js
 core/modules/contextual/src/Hook/ContextualHooks.php
+core/modules/contextual/src/Hook/ContextualThemeHooks.php
 core/modules/contextual/src/Hook/ContextualViewsHooks.php
 core/modules/contextual/src/Plugin/views/field/ContextualLinks.php
 core/modules/contextual/src/Element/ContextualLinksPlaceholder.php
@@ -14801,6 +14812,8 @@ core/modules/system/tests/modules/js_testing_ajax_request_test/js/js_testing_aja
 core/modules/system/tests/modules/js_testing_ajax_request_test/src/Hook/JsTestingAjaxRequestTestHooks.php
 core/modules/system/tests/modules/js_testing_ajax_request_test/js_testing_ajax_request_test.info.yml
 core/modules/system/tests/modules/js_testing_ajax_request_test/js_testing_ajax_request_test.libraries.yml
+core/modules/system/tests/modules/module_test_oop_preprocess/module_test_oop_preprocess.info.yml
+core/modules/system/tests/modules/module_test_oop_preprocess/src/Hook/ModuleTestOopPreprocessThemeHooks.php
 core/modules/system/tests/modules/form_test/form_test.permissions.yml
 core/modules/system/tests/modules/form_test/js/form_test.js
 core/modules/system/tests/modules/form_test/form_test.routing.yml
@@ -15252,6 +15265,7 @@ core/modules/system/tests/modules/plugin_test/src/Plugin/plugin_test/custom_anno
 core/modules/system/tests/modules/plugin_test/src/Plugin/plugin_test/custom_annotation/Example4.php
 core/modules/system/tests/modules/plugin_test/src/Plugin/plugin_test/custom_annotation/Example3.php
 core/modules/system/tests/modules/plugin_test/src/Plugin/plugin_test/custom_annotation/UsingNonInstalledTraitClass.php
+core/modules/system/tests/modules/plugin_test/src/Plugin/plugin_test/custom_annotation/ExampleWithAttributeAndAnnotation.php
 core/modules/system/tests/modules/plugin_test/src/Plugin/plugin_test/custom_annotation/Example2.php
 core/modules/system/tests/modules/plugin_test/src/Plugin/plugin_test/mock_block/MockComplexContextBlock.php
 core/modules/system/tests/modules/plugin_test/src/Plugin/plugin_test/mock_block/MockMenuBlockDeriver.php
@@ -15599,6 +15613,7 @@ core/modules/system/tests/modules/theme_test/theme_test.inc
 core/modules/system/tests/modules/theme_test/theme_test.module
 core/modules/system/tests/modules/theme_test/src/ThemeTestPreprocess.php
 core/modules/system/tests/modules/theme_test/src/Hook/ThemeTestHooks.php
+core/modules/system/tests/modules/theme_test/src/Hook/ThemeTestThemeHooks.php
 core/modules/system/tests/modules/theme_test/src/Theme/CustomThemeNegotiator.php
 core/modules/system/tests/modules/theme_test/src/Theme/HighPriorityThemeNegotiator.php
 core/modules/system/tests/modules/theme_test/src/EventSubscriber/ThemeTestSubscriber.php
@@ -15615,6 +15630,8 @@ core/modules/system/tests/modules/twig_extension_test/src/TwigExtension/TestExte
 core/modules/system/tests/modules/twig_extension_test/twig_extension_test.services.yml
 core/modules/system/tests/modules/entity_crud_hook_test/src/Hook/EntityCrudHookTestHooks.php
 core/modules/system/tests/modules/entity_crud_hook_test/entity_crud_hook_test.info.yml
+core/modules/system/tests/modules/module_test_procedural_preprocess/module_test_procedural_preprocess.info.yml
+core/modules/system/tests/modules/module_test_procedural_preprocess/module_test_procedural_preprocess.module
 core/modules/system/tests/modules/respond_install_uninstall_hook_test/src/Hook/OtherModuleInstalledHooks.php
 core/modules/system/tests/modules/respond_install_uninstall_hook_test/src/Hook/OtherModuleUninstalledHooks.php
 core/modules/system/tests/modules/respond_install_uninstall_hook_test/respond_install_uninstall_hook_test.info.yml
